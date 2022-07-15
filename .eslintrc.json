@@ -5,14 +5,23 @@
     "es6": true,
     "node": true
   },
-  "extends": ["prettier", "prettier/@typescript-eslint"],
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "stylelint-config-prettier"
+  ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "project": "tsconfig.json",
+    "project": ["./tsconfig.*?.json"],
     "sourceType": "module"
   },
   "ignorePatterns": ["**/*"],
-  "plugins": ["@nrwl/nx"],
+  "plugins": [
+    "@nrwl/nx",
+    "eslint-plugin-import",
+    "@angular-eslint/eslint-plugin",
+    "@typescript-eslint"
+  ],
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
@@ -34,21 +43,16 @@
     },
     {
       "files": ["*.ts", "*.tsx"],
-      "extends": [
-        "plugin:@nrwl/nx/typescript",
-        "eslint-plugin-import",
-        "@angular-eslint/eslint-plugin",
-        "@typescript-eslint",
-        "@typescript-eslint/tslint"
-      ],
+      "extends": ["plugin:@nrwl/nx/typescript"],
       "rules": {
+        "prettier/prettier": "error",
         "@angular-eslint/directive-selector": [
           "error",
-          { "type": "attribute", "prefix": "anms", "style": "camelCase" }
+          { "type": "attribute", "prefix": "sdw", "style": "camelCase" }
         ],
         "@angular-eslint/component-selector": [
           "error",
-          { "type": "element", "prefix": "anms", "style": "kebab-case" }
+          { "type": "element", "prefix": "sdw", "style": "kebab-case" }
         ],
         "@angular-eslint/component-class-suffix": "error",
         "@angular-eslint/directive-class-suffix": "error",
@@ -79,14 +83,6 @@
         "@typescript-eslint/no-unused-expressions": "error",
         "@typescript-eslint/prefer-function-type": "error",
         "@typescript-eslint/quotes": ["error", "single"],
-        "@typescript-eslint/tslint/config": [
-          "error",
-          {
-            "rules": {
-              "whitespace": true
-            }
-          }
-        ],
         "@typescript-eslint/unified-signatures": "error",
         "arrow-body-style": "error",
         "constructor-super": "error",
