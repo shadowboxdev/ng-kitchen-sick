@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npx pretty-quick --staged
 npx stylelint "{apps,libs}/**/*.{css,less,sass,scss,sss}"
+npx nx run-many --target=lint --all --parallel --fix

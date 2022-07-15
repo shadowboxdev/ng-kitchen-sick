@@ -1,4 +1,4 @@
-{
+module.exports = {
   "root": true,
   "env": {
     "browser": true,
@@ -11,7 +11,8 @@
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "project": ["./tsconfig.*?.json"],
+    "project": ['./tsconfig.eslint.json', './apps/*/tsconfig.json', './libs/*/tsconfig.json'],
+    tsconfigRootDir: __dirname,
     "sourceType": "module"
   },
   "ignorePatterns": ["**/*"],
@@ -45,14 +46,6 @@
       "extends": ["plugin:@nrwl/nx/typescript"],
       "rules": {
         "prettier/prettier": "error",
-        "@angular-eslint/directive-selector": [
-          "error",
-          { "type": "attribute", "prefix": "sdw", "style": "camelCase" }
-        ],
-        "@angular-eslint/component-selector": [
-          "error",
-          { "type": "element", "prefix": "sdw", "style": "kebab-case" }
-        ],
         "@angular-eslint/component-class-suffix": "error",
         "@angular-eslint/directive-class-suffix": "error",
         "@angular-eslint/no-input-rename": "error",
