@@ -50,7 +50,6 @@
     "@angular/compiler-cli": "~14.0.0",
     "@angular/language-service": "~14.0.0",
     "@commitlint/cli": "^17.0.3",
-    "@commitlint/config-angular": "^17.0.3",
     "@commitlint/config-conventional": "^17.0.3",
     "@commitlint/config-nx-scopes": "^17.0.0",
     "@nestjs/schematics": "^8.0.0",

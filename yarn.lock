@@ -1990,22 +1990,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/config-angular-type-enum@npm:^17.0.0":
-  version: 17.0.0
-  resolution: "@commitlint/config-angular-type-enum@npm:17.0.0"
-  checksum: f5ef60302a3fb6fd181406d19f307c02e92df70cfc2ead33ec54def1b07298417d51a16b44513403bab7bfd68a08f3c5bf82064b3074e43b9c1b8b25f973a656
-  languageName: node
-  linkType: hard
-
-"@commitlint/config-angular@npm:^17.0.3":
-  version: 17.0.3
-  resolution: "@commitlint/config-angular@npm:17.0.3"
-  dependencies:
-    "@commitlint/config-angular-type-enum": ^17.0.0
-  checksum: 3eeb7158c50721cb583ce2dfb78dc8c39103bd4bc60ec44a7f81efa8383ab7350ebeecaafe72d60ae94de6fe203919438f64e1032f2dfe645f28310785da8b50
-  languageName: node
-  linkType: hard
-
 "@commitlint/config-conventional@npm:^17.0.3":
   version: 17.0.3
   resolution: "@commitlint/config-conventional@npm:17.0.3"
@@ -11233,7 +11217,6 @@ __metadata:
     "@angular/platform-browser-dynamic": ~14.0.0
     "@angular/router": ~14.0.0
     "@commitlint/cli": ^17.0.3
-    "@commitlint/config-angular": ^17.0.3
     "@commitlint/config-conventional": ^17.0.3
     "@commitlint/config-nx-scopes": ^17.0.0
     "@nestjs/common": ^8.0.0
