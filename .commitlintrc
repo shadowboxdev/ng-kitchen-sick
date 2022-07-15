@@ -1,8 +1,7 @@
 {
     "extends": [
       "@commitlint/config-conventional",
-      "@commitlint/config-nx-scopes",
-      "@commitlint/config-angular"
+      "@commitlint/config-nx-scopes"
     ]
   }
   
