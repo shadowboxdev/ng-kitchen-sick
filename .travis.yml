@@ -1,8 +1,7 @@
 language: node_js
 node_js:
   - 14
-sudo: false
-dist: trusty
+dist: jammy
 addons:
   chrome: stable
 cache:
