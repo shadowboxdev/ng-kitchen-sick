@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Message } from '@myorg/api-interfaces';
+import { Message } from '@sdw/api-interfaces';
 
 @Component({
-  selector: 'myorg-root',
+  selector: 'sdw-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
