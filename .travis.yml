@@ -18,8 +18,7 @@ before_install:
   - export PATH="$HOME/.yarn/bin:$PATH"
   # Then the local Yarn 2 should be available and get used
   - yarn -v
-install:
-  - yarn --immutable
+install: yarn
 script:
   # run build script specified in package.json
   - npm i webdriver-manager
