@@ -7,17 +7,18 @@ addons:
   chrome: stable
 cache:
   directories:
+    - ./.yarn/cache
     - $HOME/.npm
 before_install:
   - export CHROME_BIN=chromium-browser
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
-install:
-  - npm install codecov -g
-  # Upgrade Yarn
-  - yarn set version berry
+    # Upgrade Yarn
+  - curl -o- -L https://yarnpkg.com/install.sh | bash
+  - export PATH="$HOME/.yarn/bin:$PATH"
   # Then the local Yarn 2 should be available and get used
   - yarn -v
+install:
   - yarn --immutable
 script:
   # run build script specified in package.json
@@ -25,5 +26,4 @@ script:
   - yarn --immutable
   # call script for deploying of produced artifacts
   - bash ./.travis-deploy.sh
-after_success:
-  - codecov
+
