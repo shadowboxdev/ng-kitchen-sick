@@ -14,11 +14,11 @@ before_install:
   - sh -e /etc/init.d/xvfb start
 install:
   - npm install codecov -g
-  - npm ci
+  - yarn --immutable
 script:
   # run build script specified in package.json
   - npm i webdriver-manager
-  - npm run ci
+  - yarn --immutable
   # call script for deploying of produced artifacts
   - bash ./.travis-deploy.sh
 after_success:
