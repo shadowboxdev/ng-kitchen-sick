@@ -19,15 +19,12 @@ before_install:
   # Then the local Yarn 2 should be available and get used
   - yarn -v
 install: yarn --immutable
+script:
+  # run build script specified in package.json
+  - yarn build --configuration=production
 deploy:
   provider: script
   script: .config/ci/deploy.sh
   on:
     all_branches: true
     condition: $TRAVIS_BRANCH =~ ^(staging|production|main)$
-script:
-  # run build script specified in package.json
-  - yarn build --configuration=production
-  # call script for deploying of produced artifacts
-  - bash ./.travis-deploy.sh
-
