@@ -28,4 +28,3 @@ deploy:
   script: .config/ci/deploy.sh
   on:
     all_branches: true
-    condition: $TRAVIS_BRANCH =~ ^(staging|production|main)$
