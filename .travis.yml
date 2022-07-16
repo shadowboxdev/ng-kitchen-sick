@@ -21,9 +21,11 @@ before_install:
   - yarn -v
 install: yarn --immutable
 script:
-  # 
   # run build script specified in package.json
   - yarn build --configuration=production
+after_script:
+  # switch to build directory
+  - cd ./dist/ui
 deploy:
   provider: pages:git
   edge: true
