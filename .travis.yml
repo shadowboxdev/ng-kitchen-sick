@@ -21,8 +21,8 @@ before_install:
 install: yarn
 script:
   # run build script specified in package.json
-  - npm i webdriver-manager
   - yarn --immutable
+  - yarn add webdriver-manager
   # call script for deploying of produced artifacts
   - bash ./.travis-deploy.sh
 
