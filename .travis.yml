@@ -25,7 +25,7 @@ script:
   - yarn build --configuration=production
 deploy:
   provider: pages:git
-  local_dir: /dist/ui
+  local_dir: /dist/apps/ui
   edge: true
   token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
   keep_history: true
