@@ -22,7 +22,7 @@ before_install:
 install: yarn --immutable
 script:
   # run build script specified in package.json
-  - yarn build --configuration=production
+  - yarn build --configuration=production --base-href=/$BASE_HREF/
 deploy:
   provider: pages:git
   local_dir: ./dist/apps/ui
