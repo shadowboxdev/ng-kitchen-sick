@@ -18,11 +18,10 @@ before_install:
   - export PATH="$HOME/.yarn/bin:$PATH"
   # Then the local Yarn 2 should be available and get used
   - yarn -v
-install: yarn
+install: yarn --immutable
 script:
   # run build script specified in package.json
-  - yarn --immutable
-  - yarn add webdriver-manager
+  - yarn build --configuration=production
   # call script for deploying of produced artifacts
   - bash ./.travis-deploy.sh
 
