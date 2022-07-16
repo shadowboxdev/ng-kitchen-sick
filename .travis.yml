@@ -21,10 +21,13 @@ before_install:
   - yarn -v
 install: yarn --immutable
 script:
+  # 
   # run build script specified in package.json
   - yarn build --configuration=production
 deploy:
-  provider: script
-  script: .config/ci/deploy.sh
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  keep_history: true
   on:
-    all_branches: true
+    branch: main
