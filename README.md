@@ -1,6 +1,6 @@
 
 
-# ShadowboxDev
+# ShadowboxDev [![Build Status](https://app.travis-ci.com/shadowboxdev/ng-kitchen-sick.svg?branch=main)](https://app.travis-ci.com/shadowboxdev/ng-kitchen-sick)
 
 This project was generated using [Nx](https://nx.dev).
 
