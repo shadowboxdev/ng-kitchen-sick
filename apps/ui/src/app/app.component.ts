@@ -1,8 +1,5 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { MediaMatcher } from '@angular/cdk/layout';
-
-import { Message } from '@sdw/api-interfaces';
 
 @Component({
   selector: 'sdw-root',
