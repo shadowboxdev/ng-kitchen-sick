@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  ga: 'G-RCPK03F9YZ' // Google Analytics MeasurementID
 };
