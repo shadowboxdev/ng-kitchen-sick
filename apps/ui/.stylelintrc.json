@@ -5,7 +5,8 @@
     {
       "files": ["**/*.{css,scss}"],
       "rules": {
-        "no-empty-source": null
+        "no-empty-source": null,
+        "scss/at-rule-no-unknown": null
       }
     }
   ]
