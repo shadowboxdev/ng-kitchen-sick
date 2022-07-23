@@ -51,17 +51,8 @@ module.exports = {
       extends: ['plugin:@nrwl/nx/typescript'],
       rules: {
         'prettier/prettier': 'error',
-        'no-unused-vars': 'off', // or "@typescript-eslint/no-unused-vars": "off",
-        'unused-imports/no-unused-imports': 'error',
-        'unused-imports/no-unused-vars': [
-          'warn',
-          {
-            vars: 'all',
-            varsIgnorePattern: '^_',
-            args: 'after-used',
-            argsIgnorePattern: '^_'
-          }
-        ],
+       "@typescript-eslint/no-unused-vars": "off",
+        'unused-imports/no-unused-imports-ts': 'error',
         '@angular-eslint/component-class-suffix': 'error',
         '@angular-eslint/directive-class-suffix': 'error',
         '@angular-eslint/no-input-rename': 'error',

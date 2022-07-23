@@ -65,7 +65,13 @@
     "@nrwl/nest": "14.4.2",
     "@nrwl/node": "14.4.2",
     "@nrwl/nx-cloud": "latest",
+    "@nrwl/storybook": "^14.4.3",
     "@nrwl/workspace": "14.4.2",
+    "@storybook/addon-essentials": "~6.5.9",
+    "@storybook/angular": "~6.5.9",
+    "@storybook/builder-webpack5": "~6.5.9",
+    "@storybook/core-server": "~6.5.9",
+    "@storybook/manager-webpack5": "~6.5.9",
     "@types/jest": "27.4.1",
     "@types/node": "16.11.7",
     "@typescript-eslint/eslint-plugin": "^5.1.0",
@@ -95,6 +101,7 @@
     "stylelint-config-standard": "^25.0.0",
     "ts-jest": "27.1.4",
     "ts-node": "~10.8.0",
-    "typescript": "~4.7.2"
+    "typescript": "~4.7.2",
+    "webpack": "^5.64.0"
   }
 }
