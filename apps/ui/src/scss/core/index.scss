@@ -1,0 +1,5 @@
+@use '_scrollbar' as scrollbar;
+
+@mixin core() {
+  @include scrollbar.styles();
+}

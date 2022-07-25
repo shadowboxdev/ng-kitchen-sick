@@ -1,0 +1,31 @@
+@use 'sass:math';
+@use 'sass:map';
+@use 'variables' as vars;
+
+@mixin styles($scrollbar: vars.$scrollbar-config) {
+  $foreground: map.get($scrollbar, foreground);
+  $background: map.get($scrollbar, background);
+  $size: map.get($scrollbar, width);
+  $border-radius: math.div($size, 2);
+
+  ::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: $foreground;
+    border-radius: $border-radius;
+    cursor: pointer;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: $background;
+  }
+
+  // For Firefox
+  * {
+    scrollbar-color: $foreground $background;
+    scrollbar-width: thin;
+  }
+}
