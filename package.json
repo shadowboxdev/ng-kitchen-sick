@@ -49,6 +49,8 @@
     "@ngrx/router-store": "^14.0.2",
     "@ngrx/store": "^14.0.2",
     "@ngrx/store-devtools": "^14.0.2",
+    "@ngx-formly/core": "^5.12.6",
+    "@ngx-formly/material": "^5.12.6",
     "@ngx-translate/core": "^14.0.0",
     "@ngx-translate/http-loader": "^7.0.0",
     "@nrwl/angular": "14.4.2",
