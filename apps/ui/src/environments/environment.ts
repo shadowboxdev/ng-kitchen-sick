@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  i18nPrefix: '',
   ga: 'G-RCPK03F9YZ'
 };
 

@@ -1,4 +1,5 @@
 const { createGlobPatternsForDependencies } = require('@nrwl/angular/tailwind');
+const colors = require('tailwindcss/colors');
 const { join } = require('path');
 
 module.exports = {
@@ -7,7 +8,12 @@ module.exports = {
     ...createGlobPatternsForDependencies(__dirname)
   ],
   theme: {
-    extend: {}
+    extend: {
+      colors: {
+        sky: colors.sky,
+        cyan: colors.cyan
+      }
+    }
   },
-  plugins: []
+  plugins: [require('@tailwindcss/forms')]
 };

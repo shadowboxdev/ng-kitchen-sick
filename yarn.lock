@@ -3104,6 +3104,59 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@fortawesome/angular-fontawesome@npm:^0.11.1":
+  version: 0.11.1
+  resolution: "@fortawesome/angular-fontawesome@npm:0.11.1"
+  dependencies:
+    tslib: ^2.4.0
+  peerDependencies:
+    "@angular/core": ^14.0.0
+    "@fortawesome/fontawesome-svg-core": ~1.2.27 || ~1.3.0-beta2 || ^6.1.0
+  checksum: d127b1660a1357401679030dc5be3dbf4fa3f32e35735ced3784584c67ce9bfedce59027508b428eeb4388382d4472e42356ee88c78a8c964d055b6be3868c5f
+  languageName: node
+  linkType: hard
+
+"@fortawesome/fontawesome-common-types@npm:6.1.2":
+  version: 6.1.2
+  resolution: "@fortawesome/fontawesome-common-types@npm:6.1.2"
+  checksum: 16ba97f73256adef5cd680a027e6dbd3e76f34ba9227f7bd9e8c372cb4f337c7ccbf41f35dcfbc22b11320bbb579d01daccf1aa7ae47df5d0b17260c0097bb30
+  languageName: node
+  linkType: hard
+
+"@fortawesome/fontawesome-free@npm:^6.1.2":
+  version: 6.1.2
+  resolution: "@fortawesome/fontawesome-free@npm:6.1.2"
+  checksum: 0d3c9d60ffbb9c1fa4041051eff6542adc1fc29653501399d0235c077a2195a35f286d979da42fe021f73649032f9eeae2c9a0511eaacda2896559155d40a0fc
+  languageName: node
+  linkType: hard
+
+"@fortawesome/fontawesome-svg-core@npm:^6.1.2":
+  version: 6.1.2
+  resolution: "@fortawesome/fontawesome-svg-core@npm:6.1.2"
+  dependencies:
+    "@fortawesome/fontawesome-common-types": 6.1.2
+  checksum: bb82ed1e79ade9977746b4bb28ac0d03de7557e7c923446adec78cb3447740aca0859e91d6310007d758055a1b8f3a6f740915f04cac738931135c9bdbfe5d32
+  languageName: node
+  linkType: hard
+
+"@fortawesome/free-brands-svg-icons@npm:^6.1.2":
+  version: 6.1.2
+  resolution: "@fortawesome/free-brands-svg-icons@npm:6.1.2"
+  dependencies:
+    "@fortawesome/fontawesome-common-types": 6.1.2
+  checksum: 178b7f97bf64dcc1589bff74fc73cd0de32f002d585254e5dfb362d16c21011a77c61439dd507873d288f3c93de615cfc63235622968b037d8d8ded2d56f1d81
+  languageName: node
+  linkType: hard
+
+"@fortawesome/free-solid-svg-icons@npm:^6.1.2":
+  version: 6.1.2
+  resolution: "@fortawesome/free-solid-svg-icons@npm:6.1.2"
+  dependencies:
+    "@fortawesome/fontawesome-common-types": 6.1.2
+  checksum: b7258cd092304f9bd1e557cd3a59e9ff560165631b04f16785da14ce3148873fa8e688d62f95d68f668be32e1207c47a1fe556978ae7e9573a5b0fec09fc0f0c
+  languageName: node
+  linkType: hard
+
 "@gar/promisify@npm:^1.0.1, @gar/promisify@npm:^1.1.3":
   version: 1.1.3
   resolution: "@gar/promisify@npm:1.1.3"
@@ -3622,6 +3675,96 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ngrx/component-store@npm:^14.0.2":
+  version: 14.0.2
+  resolution: "@ngrx/component-store@npm:14.0.2"
+  dependencies:
+    tslib: ^2.0.0
+  peerDependencies:
+    "@angular/core": ^14.0.0
+    rxjs: ^6.5.3 || ^7.5.0
+  checksum: 60303ad187c1ec1f3315f41be050c1b38bea958b06c6bac7ab882718f181c38357af86a95f24fd4bb85b47fb7d7a0448eba88a121b7f2cba40bbaf28e4c7ba32
+  languageName: node
+  linkType: hard
+
+"@ngrx/component@npm:^14.0.2":
+  version: 14.0.2
+  resolution: "@ngrx/component@npm:14.0.2"
+  dependencies:
+    tslib: ^2.0.0
+  peerDependencies:
+    "@angular/common": ^14.0.0
+    "@angular/core": ^14.0.0
+    rxjs: ^6.5.3 || ^7.5.0
+  checksum: 2fe3c9d888ac5621d7dcede3515f35c04fee830f407bed88783975b6c3e626528b11b8f3b9e3bf7083ff44c322e466c3867b058416f873e22923b538da1740a3
+  languageName: node
+  linkType: hard
+
+"@ngrx/effects@npm:^14.0.2":
+  version: 14.0.2
+  resolution: "@ngrx/effects@npm:14.0.2"
+  dependencies:
+    tslib: ^2.0.0
+  peerDependencies:
+    "@angular/core": ^14.0.0
+    "@ngrx/store": 14.0.2
+    rxjs: ^6.5.3 || ^7.5.0
+  checksum: 3b409b5f7517e6f84125958251372e11f3a4fe4ceb18f5bfe582f93a35fac361304107edf4e8c50b0d35757016061898a01c9012230cb4426a65995e5e31fd3a
+  languageName: node
+  linkType: hard
+
+"@ngrx/entity@npm:^14.0.2":
+  version: 14.0.2
+  resolution: "@ngrx/entity@npm:14.0.2"
+  dependencies:
+    tslib: ^2.0.0
+  peerDependencies:
+    "@angular/core": ^14.0.0
+    "@ngrx/store": 14.0.2
+    rxjs: ^6.5.3 || ^7.5.0
+  checksum: 0f51f938ff00c9c9a37b4ed3778f03e7d891aa66814de304132106926b8c2caa84b5cf332cd6956d9c60b72fab7cdfb4a900141174eadc8fb80b487d7fff3b4f
+  languageName: node
+  linkType: hard
+
+"@ngrx/router-store@npm:^14.0.2":
+  version: 14.0.2
+  resolution: "@ngrx/router-store@npm:14.0.2"
+  dependencies:
+    tslib: ^2.0.0
+  peerDependencies:
+    "@angular/common": ^14.0.0
+    "@angular/core": ^14.0.0
+    "@angular/router": ^14.0.0
+    "@ngrx/store": 14.0.2
+    rxjs: ^6.5.3 || ^7.5.0
+  checksum: 102455b4ecf62be0bc82ee3b18385f134a4292999b199c9ea98142629083841c476ad0220c5c5b94ad15718e45cd6ca3362d9ceb6e9ce019c83ccd219c1492ad
+  languageName: node
+  linkType: hard
+
+"@ngrx/store-devtools@npm:^14.0.2":
+  version: 14.0.2
+  resolution: "@ngrx/store-devtools@npm:14.0.2"
+  dependencies:
+    tslib: ^2.0.0
+  peerDependencies:
+    "@ngrx/store": 14.0.2
+    rxjs: ^6.5.3 || ^7.5.0
+  checksum: 1d33e33e55d17a6b4718c58ee20cd1efc13a9feed182c25e36038694b842527351ffc4dc01d40c67a1b989d6b3d9fadfed4211d12ea8233752f5c18ab25228d4
+  languageName: node
+  linkType: hard
+
+"@ngrx/store@npm:^14.0.2":
+  version: 14.0.2
+  resolution: "@ngrx/store@npm:14.0.2"
+  dependencies:
+    tslib: ^2.0.0
+  peerDependencies:
+    "@angular/core": ^14.0.0
+    rxjs: ^6.5.3 || ^7.5.0
+  checksum: 157f11431fa8a2120c97d0a975f508ab2f782b5780d31a5a16bcbf39105815f85c9817b5560c713be8fc4cad2ecba771578eb993a85e0fca3566962f08446600
+  languageName: node
+  linkType: hard
+
 "@ngtools/webpack@npm:14.0.6":
   version: 14.0.6
   resolution: "@ngtools/webpack@npm:14.0.6"
@@ -3630,6 +3773,31 @@ __metadata:
     typescript: ">=4.6.2 <4.8"
     webpack: ^5.54.0
   checksum: 86f7cc31d8426a949aac58c37c2e89366da1c02b5bbb5a08c673112327a06c7700d2ab50be00bc20510d585f1ef185f9c826ad4724516134e66bdb19bf34a86c
+  languageName: node
+  linkType: hard
+
+"@ngx-translate/core@npm:^14.0.0":
+  version: 14.0.0
+  resolution: "@ngx-translate/core@npm:14.0.0"
+  dependencies:
+    tslib: ^2.3.0
+  peerDependencies:
+    "@angular/core": ">=13.0.0"
+    rxjs: ^6.5.3 || ^7.4.0
+  checksum: d1afc35e7b729caf776e78c10badc0853b63252bdf2fa129f1b95a271cd15cf6f22ffecc52922ffbe1c3aca7d8e08351669e8bae18727664aba66b5d405f05e1
+  languageName: node
+  linkType: hard
+
+"@ngx-translate/http-loader@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "@ngx-translate/http-loader@npm:7.0.0"
+  dependencies:
+    tslib: ^2.3.0
+  peerDependencies:
+    "@angular/common": ">=13.0.0"
+    "@ngx-translate/core": ">=14.0.0"
+    rxjs: ^6.5.3 || ^7.4.0
+  checksum: ac20c888c7955656b729029a521d85b0f9964ab2acfd4c42faa37fde3aa56ea56a9ea0424ddf102cac2f33cec2d411b6359f062c068ec3c3e1163b7a465c1c4b
   languageName: node
   linkType: hard
 
@@ -5677,6 +5845,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tailwindcss/forms@npm:^0.5.2":
+  version: 0.5.2
+  resolution: "@tailwindcss/forms@npm:0.5.2"
+  dependencies:
+    mini-svg-data-uri: ^1.2.3
+  peerDependencies:
+    tailwindcss: ">=3.0.0 || >= 3.0.0-alpha.1"
+  checksum: 3c4df23491d14b37d8cef88d0f3df80f92b684b801d59c23d600773a4ccac11353a555ca36bea68ae4a82134f9c030d1353c05890a5f0085c1c40c649f806640
+  languageName: node
+  linkType: hard
+
 "@tootallnate/once@npm:1":
   version: 1.1.2
   resolution: "@tootallnate/once@npm:1.1.2"
@@ -6113,6 +6292,15 @@ __metadata:
   version: 6.9.7
   resolution: "@types/qs@npm:6.9.7"
   checksum: 7fd6f9c25053e9b5bb6bc9f9f76c1d89e6c04f7707a7ba0e44cc01f17ef5284adb82f230f542c2d5557d69407c9a40f0f3515e8319afd14e1e16b5543ac6cdba
+  languageName: node
+  linkType: hard
+
+"@types/ramda@npm:^0.28.15":
+  version: 0.28.15
+  resolution: "@types/ramda@npm:0.28.15"
+  dependencies:
+    ts-toolbelt: ^6.15.1
+  checksum: f96576c78a3bfdc8d0675a7c5fb237a56fe76b1d380578f63e59185bd1938c38729d7051d92750e6773bc2ea9c64e5d63bdbd7b95c92f5d400d3d5ce850a6dbd
   languageName: node
   linkType: hard
 
@@ -17123,11 +17311,25 @@ __metadata:
     "@commitlint/cli": ^17.0.3
     "@commitlint/config-conventional": ^17.0.3
     "@commitlint/config-nx-scopes": ^17.0.0
+    "@fortawesome/angular-fontawesome": ^0.11.1
+    "@fortawesome/fontawesome-free": ^6.1.2
+    "@fortawesome/fontawesome-svg-core": ^6.1.2
+    "@fortawesome/free-brands-svg-icons": ^6.1.2
+    "@fortawesome/free-solid-svg-icons": ^6.1.2
     "@nestjs/common": ^8.0.0
     "@nestjs/core": ^8.0.0
     "@nestjs/platform-express": ^8.0.0
     "@nestjs/schematics": ^8.0.0
     "@nestjs/testing": ^8.0.0
+    "@ngrx/component": ^14.0.2
+    "@ngrx/component-store": ^14.0.2
+    "@ngrx/effects": ^14.0.2
+    "@ngrx/entity": ^14.0.2
+    "@ngrx/router-store": ^14.0.2
+    "@ngrx/store": ^14.0.2
+    "@ngrx/store-devtools": ^14.0.2
+    "@ngx-translate/core": ^14.0.0
+    "@ngx-translate/http-loader": ^7.0.0
     "@nrwl/angular": 14.4.2
     "@nrwl/cli": 14.4.2
     "@nrwl/cypress": 14.4.2
@@ -17144,8 +17346,10 @@ __metadata:
     "@storybook/builder-webpack5": ~6.5.9
     "@storybook/core-server": ~6.5.9
     "@storybook/manager-webpack5": ~6.5.9
+    "@tailwindcss/forms": ^0.5.2
     "@types/jest": 27.4.1
     "@types/node": 16.11.7
+    "@types/ramda": ^0.28.15
     "@typescript-eslint/eslint-plugin": ^5.1.0
     "@typescript-eslint/eslint-plugin-tslint": ^5.30.6
     "@typescript-eslint/parser": ^5.1.0
@@ -17168,6 +17372,8 @@ __metadata:
     prettier: ^2.6.2
     prettier-eslint: ^15.0.1
     pretty-quick: ^3.1.3
+    ramda: ^0.28.0
+    ramda-adjunct: ^3.2.0
     reflect-metadata: ^0.1.13
     rxjs: ~7.4.0
     stylelint: ^14.5.3
@@ -20024,6 +20230,15 @@ __metadata:
   version: 5.1.1
   resolution: "quick-lru@npm:5.1.1"
   checksum: a516faa25574be7947969883e6068dbe4aa19e8ef8e8e0fd96cddd6d36485e9106d85c0041a27153286b0770b381328f4072aa40d3b18a19f5f7d2b78b94b5ed
+  languageName: node
+  linkType: hard
+
+"ramda-adjunct@npm:^3.2.0":
+  version: 3.2.0
+  resolution: "ramda-adjunct@npm:3.2.0"
+  peerDependencies:
+    ramda: ">= 0.28.0 <= 0.28.0"
+  checksum: f6dfcd4d00f9ae26388029feee7dcd41e78b02801e2bd8498746693b2040fcf759e3dc875f181f38b56e1418bc61b588d809e5c9ab2daedf2d5413b6d9edb52b
   languageName: node
   linkType: hard
 
@@ -23161,6 +23376,13 @@ __metadata:
     typescript:
       optional: true
   checksum: c2a698b85d521298fe6f2435fbf2d3dc5834b423ea25abd321805ead3f399dbeedce7ca09492d7eb005b9d2c009c6b9587055bc3ab273dc6b9e40eefd7edb5b2
+  languageName: node
+  linkType: hard
+
+"ts-toolbelt@npm:^6.15.1":
+  version: 6.15.5
+  resolution: "ts-toolbelt@npm:6.15.5"
+  checksum: 24ad00cfd9ce735c76c873a9b1347eac475b94e39ebbdf100c9019dce88dd5f4babed52884cf82bb456a38c28edd0099ab6f704b84b2e5e034852b618472c1f3
   languageName: node
   linkType: hard
 
