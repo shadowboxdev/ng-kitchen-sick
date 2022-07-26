@@ -9,6 +9,7 @@
         "nrwl",
         "stylelint",
         "stylelintrc",
+        "tailwindcss",
         "xvfb"
     ],
     "editor.codeActionsOnSave": {
