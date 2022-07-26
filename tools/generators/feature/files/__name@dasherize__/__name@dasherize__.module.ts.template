@@ -1,0 +1,17 @@
+import { NgModule, Type } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+import { <%=classify(name)%>Container } from './containers';
+
+import { <%=classify(name)%>RoutingModule } from './<%=dasherize(name)%>-routing.module';
+
+const DECLARATIONS: Type<unknown>[] = [<%=classify(name)%>Container ];
+
+@NgModule({
+  declarations: [...DECLARATIONS],
+  imports: [
+    CommonModule,
+    <%=classify(name)%>RoutingModule
+  ]
+})
+export class <%=classify(name)%>Module {}

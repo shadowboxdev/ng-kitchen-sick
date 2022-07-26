@@ -24,6 +24,18 @@
             "prefix": "sdw",
             "style": "kebab-case"
           }
+        ],
+        "@angular-eslint/component-class-suffix": [
+          "warn",
+          {
+            "suffixes": ["Component", "Container", "View", "Dialog"]
+          }
+        ],
+        "@angular-eslint/directive-class-suffix": [
+          "warn",
+          {
+            "suffixes": ["Directive", "Component", "Base"]
+          }
         ]
       }
     },

@@ -2,6 +2,7 @@
     "cSpell.words": [
         "Buildable",
         "commitlint",
+        "dasherize",
         "fontawesome",
         "fortawesome",
         "nestjs",
@@ -10,6 +11,7 @@
         "stylelint",
         "stylelintrc",
         "tailwindcss",
+        "titlize",
         "xvfb"
     ],
     "editor.codeActionsOnSave": {

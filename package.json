@@ -21,7 +21,9 @@
     "ng": "nx",
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test"
+    "test": "nx test",
+    "workspace-schematic": "nx workspace-schematic",
+    "schematic:ui:feature-module": "yarn workspace-schematic feature --project=ui"
   },
   "dependencies": {
     "@angular/animations": "~14.0.0",
@@ -75,14 +77,17 @@
     "@commitlint/config-nx-scopes": "^17.0.0",
     "@nestjs/schematics": "^8.0.0",
     "@nestjs/testing": "^8.0.0",
+    "@ngrx/schematics": "^14.0.2",
     "@nrwl/cli": "14.4.2",
     "@nrwl/cypress": "14.4.2",
+    "@nrwl/devkit": "^14.4.3",
     "@nrwl/eslint-plugin-nx": "14.4.2",
     "@nrwl/jest": "14.4.2",
     "@nrwl/linter": "14.4.2",
     "@nrwl/nest": "14.4.2",
     "@nrwl/node": "14.4.2",
     "@nrwl/nx-cloud": "latest",
+    "@nrwl/schematics": "^8.12.11",
     "@nrwl/storybook": "^14.4.3",
     "@nrwl/workspace": "14.4.2",
     "@storybook/addon-essentials": "~6.5.9",
