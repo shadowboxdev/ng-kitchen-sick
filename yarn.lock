@@ -5869,6 +5869,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tailwindcss/aspect-ratio@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "@tailwindcss/aspect-ratio@npm:0.4.0"
+  peerDependencies:
+    tailwindcss: ">=2.0.0 || >=3.0.0 || >=3.0.0-alpha.1"
+  checksum: 106ee15ce10445006a0b6cfb70bf37fc9b47b4e4e146455e61ed6c0c6b6d18255175d8f6991df9ee686d9b5afe4edc3158a22266f22a6b6e8878fd73212efef5
+  languageName: node
+  linkType: hard
+
 "@tailwindcss/forms@npm:^0.5.2":
   version: 0.5.2
   resolution: "@tailwindcss/forms@npm:0.5.2"
@@ -5877,6 +5886,28 @@ __metadata:
   peerDependencies:
     tailwindcss: ">=3.0.0 || >= 3.0.0-alpha.1"
   checksum: 3c4df23491d14b37d8cef88d0f3df80f92b684b801d59c23d600773a4ccac11353a555ca36bea68ae4a82134f9c030d1353c05890a5f0085c1c40c649f806640
+  languageName: node
+  linkType: hard
+
+"@tailwindcss/line-clamp@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "@tailwindcss/line-clamp@npm:0.4.0"
+  peerDependencies:
+    tailwindcss: ">=2.0.0 || >=3.0.0 || >=3.0.0-alpha.1"
+  checksum: 71ba25a4a18323496a7af34e55871121b8459530b0e5696c4173fd65a76162675619f1d1158a8a32e1ace2069333949bef6f1061b17f49fef98dc2291a979dcd
+  languageName: node
+  linkType: hard
+
+"@tailwindcss/typography@npm:^0.5.4":
+  version: 0.5.4
+  resolution: "@tailwindcss/typography@npm:0.5.4"
+  dependencies:
+    lodash.castarray: ^4.4.0
+    lodash.isplainobject: ^4.0.6
+    lodash.merge: ^4.6.2
+  peerDependencies:
+    tailwindcss: "*"
+  checksum: 016f27266e07fd9966ab785c4182e5ad97c06a2198ff8df739cac90a544ee9c7ac2ac968a4fe9280a1378c3ac8943a315a9f09e70085f21f2839ebc080c88fd8
   languageName: node
   linkType: hard
 
@@ -16229,10 +16260,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lodash.castarray@npm:^4.4.0":
+  version: 4.4.0
+  resolution: "lodash.castarray@npm:4.4.0"
+  checksum: fca8c7047e0ae2738b0b2503fb00157ae0ff6d8a1b716f87ed715b22560e09de438c75b65e01a7e44ceb41c5b31dce2eb576e46db04beb9c699c498e03cbd00f
+  languageName: node
+  linkType: hard
+
 "lodash.debounce@npm:^4.0.8":
   version: 4.0.8
   resolution: "lodash.debounce@npm:4.0.8"
   checksum: a3f527d22c548f43ae31c861ada88b2637eb48ac6aa3eb56e82d44917971b8aa96fbb37aa60efea674dc4ee8c42074f90f7b1f772e9db375435f6c83a19b3bc6
+  languageName: node
+  linkType: hard
+
+"lodash.isplainobject@npm:^4.0.6":
+  version: 4.0.6
+  resolution: "lodash.isplainobject@npm:4.0.6"
+  checksum: 29c6351f281e0d9a1d58f1a4c8f4400924b4c79f18dfc4613624d7d54784df07efaff97c1ff2659f3e085ecf4fff493300adc4837553104cef2634110b0d5337
   languageName: node
   linkType: hard
 
@@ -17372,7 +17417,10 @@ __metadata:
     "@storybook/builder-webpack5": ~6.5.9
     "@storybook/core-server": ~6.5.9
     "@storybook/manager-webpack5": ~6.5.9
+    "@tailwindcss/aspect-ratio": ^0.4.0
     "@tailwindcss/forms": ^0.5.2
+    "@tailwindcss/line-clamp": ^0.4.0
+    "@tailwindcss/typography": ^0.5.4
     "@types/jest": 27.4.1
     "@types/node": 16.11.7
     "@types/ramda": ^0.28.15

@@ -1,6 +1,15 @@
+const plugin = require('tailwindcss/plugin');
 const { createGlobPatternsForDependencies } = require('@nrwl/angular/tailwind');
 const colors = require('tailwindcss/colors');
 const { join } = require('path');
+
+const utilityClasses = plugin(({ addUtilities }) => {
+  addUtilities({
+    '.hidden': {
+      'content-visibility': 'hidden'
+    }
+  });
+});
 
 module.exports = {
   content: [
@@ -15,5 +24,14 @@ module.exports = {
       }
     }
   },
-  plugins: [require('@tailwindcss/forms')]
+  corePlugins: {
+    aspectRatio: false
+  },
+  plugins: [
+    utilityClasses,
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/line-clamp'),
+    require('@tailwindcss/aspect-ratio')
+  ]
 };
