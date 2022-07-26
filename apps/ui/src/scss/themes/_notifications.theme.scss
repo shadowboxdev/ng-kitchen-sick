@@ -1,0 +1,35 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+@use '../core' as core;
+
+@mixin color($config-or-theme) {
+  $config: mat.get-color-config($config-or-theme);
+  $accent: map.get($config, accent);
+  $warn: map.get($config, warn);
+  $success-palette: map.get(core.$notification-config, 'success');
+  $warning-palette: map.get(core.$notification-config, 'warning');
+
+  .error-notification-overlay {
+    background-color: mat.get-color-from-palette($warn);
+    color: mat.get-color-from-palette($warn, default-contrast);
+  }
+
+  .info-notification-overlay {
+    background-color: mat.get-color-from-palette($accent);
+    color: mat.get-color-from-palette($accent, default-contrast);
+  }
+
+  .success-notification-overlay {
+    background-color: mat.get-color-from-palette($success-palette);
+    color: mat.get-color-from-palette($success-palette, default-contrast);
+  }
+
+  .warning-notification-overlay {
+    background-color: mat.get-color-from-palette($warning-palette);
+    color: mat.get-color-from-palette($warning-palette, default-contrast);
+  }
+}
+
+@mixin theme($config-or-theme) {
+  @include color($config-or-theme);
+}

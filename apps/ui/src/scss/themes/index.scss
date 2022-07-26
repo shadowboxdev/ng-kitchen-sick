@@ -1,0 +1,5 @@
+@use '_notifications.theme' as notifications;
+
+@mixin theme($config-or-theme) {
+  @include notifications.theme($config-or-theme);
+}

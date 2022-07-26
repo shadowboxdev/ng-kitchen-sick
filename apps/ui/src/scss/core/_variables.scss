@@ -1,6 +1,17 @@
+
+
+@use '@angular/material' as mat;
+
 // Scrollbars
 $scrollbar-config: (
   foreground: #979494,
   background: #f2f2f2,
   width: 6px
 );
+
+// Notifications
+$notification-config: (
+  success: mat.define-palette(mat.$green-palette, 400),
+  warning: mat.define-palette(mat.$amber-palette, 400)
+);
+
