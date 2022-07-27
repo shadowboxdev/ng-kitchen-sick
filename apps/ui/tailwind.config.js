@@ -28,7 +28,7 @@ module.exports = {
     aspectRatio: false
   },
   plugins: [
-    utilityClasses,
+    // utilityClasses,
     require('@tailwindcss/typography'),
     require('@tailwindcss/forms'),
     require('@tailwindcss/line-clamp'),
