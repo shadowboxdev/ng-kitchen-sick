@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-types */
+import { HttpClient } from '@angular/common/http';
 import {
   ModuleWithProviders,
   NgModule,
@@ -7,25 +8,20 @@ import {
   SkipSelf,
   Type
 } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-
-import { StoreModule } from '@ngrx/store';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { StoreRouterConnectingModule } from '@ngrx/router-store';
 
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
-import { NgxGoogleAnalyticsRouterModule } from 'ngx-google-analytics';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import {
-  TranslateLoader,
-  TranslateModule,
-  TranslateService
-} from '@ngx-translate/core';
 import {
   FaIconLibrary,
   FontAwesomeModule
 } from '@fortawesome/angular-fontawesome';
+import {
+  faGithub,
+  faMediumM,
+  faTwitter,
+  faInstagram,
+  faYoutube
+} from '@fortawesome/free-brands-svg-icons';
 import {
   faCog,
   faBars,
@@ -34,20 +30,22 @@ import {
   faUserCircle,
   faPlayCircle
 } from '@fortawesome/free-solid-svg-icons';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import {
-  faGithub,
-  faMediumM,
-  faTwitter,
-  faInstagram,
-  faYoutube
-} from '@fortawesome/free-brands-svg-icons';
-
-import { APP_ERROR_HANDLER } from './services';
-import { ROUTE_SERIALIZER } from './routing';
-import { HTTP_ERROR_INTERCEPTOR } from './interceptors';
+  TranslateLoader,
+  TranslateModule,
+  TranslateService
+} from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { NgxGoogleAnalyticsRouterModule } from 'ngx-google-analytics';
 
 import { environment } from '../../environments/environment';
+import { HTTP_ERROR_INTERCEPTOR } from './interceptors';
 import { reducers, metaReducers } from './reducers';
+import { ROUTE_SERIALIZER } from './routing';
+import { APP_ERROR_HANDLER } from './services';
 
 // state imports
 const STATE_IMPORTS: (Type<unknown> | ModuleWithProviders<{}> | never[])[] = [

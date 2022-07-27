@@ -1,5 +1,7 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
+
 import { MediaMatcher } from '@angular/cdk/layout';
+
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({

@@ -1,4 +1,3 @@
-import { Injectable, Injector, ErrorHandler, Provider } from '@angular/core';
 import {
   HttpEvent,
   HttpInterceptor,
@@ -7,6 +6,8 @@ import {
   HttpErrorResponse,
   HTTP_INTERCEPTORS
 } from '@angular/common/http';
+import { Injectable, Injector, ErrorHandler, Provider } from '@angular/core';
+
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 

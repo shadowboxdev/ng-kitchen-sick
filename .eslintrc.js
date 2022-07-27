@@ -27,6 +27,12 @@ module.exports = {
     '@typescript-eslint',
     'unused-imports'
   ],
+  settings: {
+    'import/cache': 'Infinity',
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx']
+    }
+  },
   overrides: [
     {
       files: ['*.ts', '*.tsx', '*.js', '*.jsx'],
@@ -51,7 +57,7 @@ module.exports = {
       extends: ['plugin:@nrwl/nx/typescript'],
       rules: {
         'prettier/prettier': 'error',
-       "@typescript-eslint/no-unused-vars": "off",
+        '@typescript-eslint/no-unused-vars': 'off',
         'unused-imports/no-unused-imports-ts': 'error',
         '@angular-eslint/component-class-suffix': 'error',
         '@angular-eslint/directive-class-suffix': 'error',
@@ -61,12 +67,22 @@ module.exports = {
         '@angular-eslint/use-pipe-transform-interface': 'error',
         '@typescript-eslint/consistent-type-definitions': 'error',
         '@typescript-eslint/dot-notation': 'off',
-        '@typescript-eslint/explicit-member-accessibility': [
-          'off',
+        '@typescript-eslint/explicit-function-return-type': [
+          'error',
           {
-            accessibility: 'explicit'
+            allowExpressions: true
           }
         ],
+        '@typescript-eslint/explicit-member-accessibility': [
+          'error',
+          {
+            accessibility: 'explicit',
+            overrides: {
+              constructors: 'no-public'
+            }
+          }
+        ],
+        '@typescript-eslint/init-declarations': ['error', 'always'],
         '@typescript-eslint/member-ordering': 'error',
         '@typescript-eslint/naming-convention': 'error',
         '@typescript-eslint/no-empty-function': 'off',
@@ -90,6 +106,27 @@ module.exports = {
         'id-blacklist': 'off',
         'id-match': 'off',
         'import/no-deprecated': 'warn',
+        'import/order': [
+          'warn',
+          {
+            'newlines-between': 'always',
+            alphabetize: { order: 'asc', caseInsensitive: true },
+            groups: ['builtin', 'external', 'internal', ['sibling', 'parent']],
+            pathGroups: [
+              {
+                "pattern": "@angular/*(material|cdk)/*",
+                "group": "builtin",
+                "position": "after"
+              },
+              {
+                "pattern": "@angular/**/*",
+                "group": "builtin",
+                "position": "before"
+              }
+            ],
+            pathGroupsExcludedImportTypes: []
+          }
+        ],
         'no-bitwise': 'error',
         'no-caller': 'error',
         'no-console': [

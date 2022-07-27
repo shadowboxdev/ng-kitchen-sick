@@ -1,5 +1,7 @@
 import { Injectable, NgZone } from '@angular/core';
+
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
+
 import { mergeRight, compose, objOf } from 'ramda';
 
 const setDefaultOptions = mergeRight({ duration: 2000 });

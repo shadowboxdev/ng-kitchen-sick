@@ -1,4 +1,5 @@
 import { moduleMetadata, Story, Meta } from '@storybook/angular';
+
 import { AppComponent } from './app.component';
 
 export default {
