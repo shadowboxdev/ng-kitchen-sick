@@ -94,6 +94,7 @@ export class CoreModule {
     if (parentModule) throwAlreadyLoadedError();
 
     this._addFaIcons();
+    this._setI18n();
   }
 
   private _addFaIcons(): void {
