@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-types */
 import {
   ModuleWithProviders,
   NgModule,
@@ -8,10 +9,13 @@ import {
 } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
+
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { NgxGoogleAnalyticsRouterModule } from 'ngx-google-analytics';
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import {
   FaIconLibrary,
@@ -38,8 +42,11 @@ import { ROUTE_SERIALIZER } from './routing';
 import { HTTP_ERROR_INTERCEPTOR } from './interceptors';
 
 import { environment } from '../../environments/environment';
+import { reducers, metaReducers } from './reducers';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
 export function httpLoaderFactory(http: HttpClient) {
+  console.log('here');
   return new TranslateHttpLoader(
     http,
     `${environment.i18nPrefix}/assets/i18n/`,
@@ -47,20 +54,19 @@ export function httpLoaderFactory(http: HttpClient) {
   );
 }
 
+// state imports
+const STATE_IMPORTS: (Type<unknown> | ModuleWithProviders<{}> | never[])[] = [
+  StoreModule.forRoot(reducers, { metaReducers }),
+  StoreRouterConnectingModule.forRoot(),
+  !environment.production ? StoreDevtoolsModule.instrument() : []
+];
+
 const MAT_IMPORTS: Type<unknown>[] = [MatSnackBarModule];
 
 // 3rd party imports
-// eslint-disable-next-line @typescript-eslint/ban-types
 const OTHER_IMPORTS: (Type<unknown> | ModuleWithProviders<{}>)[] = [
   NgxGoogleAnalyticsRouterModule,
-  FontAwesomeModule,
-  TranslateModule.forRoot({
-    loader: {
-      provide: TranslateLoader,
-      useFactory: httpLoaderFactory,
-      deps: [HttpClient]
-    }
-  })
+  FontAwesomeModule
 ];
 
 const PROVIDERS: Provider[] = [
@@ -70,7 +76,18 @@ const PROVIDERS: Provider[] = [
 ];
 
 @NgModule({
-  imports: [...MAT_IMPORTS, ...OTHER_IMPORTS],
+  imports: [
+    ...MAT_IMPORTS,
+    ...OTHER_IMPORTS,
+    ...STATE_IMPORTS,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: httpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
+  ],
   providers: [...PROVIDERS]
 })
 export class CoreModule {
