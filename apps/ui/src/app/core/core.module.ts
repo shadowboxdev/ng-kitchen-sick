@@ -18,6 +18,11 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NgxGoogleAnalyticsRouterModule } from 'ngx-google-analytics';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import {
+  TranslateLoader,
+  TranslateModule,
+  TranslateService
+} from '@ngx-translate/core';
+import {
   FaIconLibrary,
   FontAwesomeModule
 } from '@fortawesome/angular-fontawesome';
@@ -43,16 +48,6 @@ import { HTTP_ERROR_INTERCEPTOR } from './interceptors';
 
 import { environment } from '../../environments/environment';
 import { reducers, metaReducers } from './reducers';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-
-export function httpLoaderFactory(http: HttpClient) {
-  console.log('here');
-  return new TranslateHttpLoader(
-    http,
-    `${environment.i18nPrefix}/assets/i18n/`,
-    '.json'
-  );
-}
 
 // state imports
 const STATE_IMPORTS: (Type<unknown> | ModuleWithProviders<{}> | never[])[] = [
@@ -95,13 +90,16 @@ export class CoreModule {
     @Optional()
     @SkipSelf()
     parentModule: CoreModule,
-    faIconLibrary: FaIconLibrary
+    private readonly _faIconLibrary: FaIconLibrary,
+    private readonly _translate: TranslateService
   ) {
-    if (parentModule) {
-      throw new Error('CoreModule is already loaded. Import only in AppModule');
-    }
+    if (parentModule) throwAlreadyLoadedError();
 
-    faIconLibrary.addIcons(
+    this._addFaIcons();
+  }
+
+  private _addFaIcons(): void {
+    this._faIconLibrary.addIcons(
       faCog,
       faBars,
       faRocket,
@@ -115,4 +113,24 @@ export class CoreModule {
       faYoutube
     );
   }
+
+  private _setI18n(): void {
+    this._translate.addLangs(['en', 'fr']);
+    this._translate.setDefaultLang('en');
+
+    const browserLang = this._translate.getBrowserLang();
+    this._translate.use(browserLang?.match(/en|fr/) ? browserLang : 'en');
+  }
+}
+
+function httpLoaderFactory(http: HttpClient): TranslateHttpLoader {
+  return new TranslateHttpLoader(
+    http,
+    `${environment.i18nPrefix}/assets/i18n/`,
+    '.json'
+  );
+}
+
+function throwAlreadyLoadedError(): void {
+  throw new Error('CoreModule is already loaded. Import only in AppModule');
 }

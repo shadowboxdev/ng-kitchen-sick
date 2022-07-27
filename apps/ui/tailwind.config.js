@@ -4,11 +4,8 @@ const colors = require('tailwindcss/colors');
 const { join } = require('path');
 
 const utilityClasses = plugin(({ addUtilities }) => {
-  addUtilities({
-    '.hidden': {
-      'content-visibility': 'hidden'
-    }
-  });
+  // Add Utility Classes here
+  addUtilities({});
 });
 
 module.exports = {
@@ -28,7 +25,7 @@ module.exports = {
     aspectRatio: false
   },
   plugins: [
-    // utilityClasses,
+    utilityClasses,
     require('@tailwindcss/typography'),
     require('@tailwindcss/forms'),
     require('@tailwindcss/line-clamp'),
