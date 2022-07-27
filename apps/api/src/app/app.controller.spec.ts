@@ -4,7 +4,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
 describe('AppController', () => {
-  let app: TestingModule;
+  let app: TestingModule | null = null;
 
   beforeAll(async () => {
     app = await Test.createTestingModule({

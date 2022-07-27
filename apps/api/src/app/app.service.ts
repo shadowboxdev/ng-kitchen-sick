@@ -3,7 +3,7 @@ import { Message } from '@sdw/api-interfaces';
 
 @Injectable()
 export class AppService {
-  getData(): Message {
+  public getData(): Message {
     return { message: 'Welcome to api!' };
   }
 }

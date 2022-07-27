@@ -3203,6 +3203,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@fortawesome/free-regular-svg-icons@npm:^6.1.2":
+  version: 6.1.2
+  resolution: "@fortawesome/free-regular-svg-icons@npm:6.1.2"
+  dependencies:
+    "@fortawesome/fontawesome-common-types": 6.1.2
+  checksum: 1485773e16a019fd4af0053ab7e7f51558fe016dcfd8b975d5fc14069dd494d0c345477c1ceddc0356634a53add780761242aa4b20fc5ce616274aa7808bff39
+  languageName: node
+  linkType: hard
+
 "@fortawesome/free-solid-svg-icons@npm:^6.1.2":
   version: 6.1.2
   resolution: "@fortawesome/free-solid-svg-icons@npm:6.1.2"
@@ -17905,6 +17914,7 @@ __metadata:
     "@fortawesome/fontawesome-free": ^6.1.2
     "@fortawesome/fontawesome-svg-core": ^6.1.2
     "@fortawesome/free-brands-svg-icons": ^6.1.2
+    "@fortawesome/free-regular-svg-icons": ^6.1.2
     "@fortawesome/free-solid-svg-icons": ^6.1.2
     "@nestjs/common": ^8.0.0
     "@nestjs/core": ^8.0.0
