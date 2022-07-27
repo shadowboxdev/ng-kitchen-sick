@@ -5,8 +5,14 @@ import {
   FaIconLibrary,
   FontAwesomeModule
 } from '@fortawesome/angular-fontawesome';
-import { far } from '@fortawesome/free-regular-svg-icons';
-import { fas } from '@fortawesome/free-solid-svg-icons';
+import {
+  faArrowDown,
+  faArrowUp,
+  faChartBar,
+  faChartPie,
+  faPercent,
+  faUsers
+} from '@fortawesome/free-solid-svg-icons';
 
 import { DashboardContainer } from './containers';
 import { DashboardRoutingModule } from './dashboard-routing.module';
@@ -23,6 +29,13 @@ const OTHER_IMPORTS: Type<unknown>[] = [FontAwesomeModule];
 })
 export class DashboardModule {
   constructor(_faIconLibrary: FaIconLibrary) {
-    _faIconLibrary.addIconPacks(fas, far);
+    _faIconLibrary.addIcons(
+      faArrowUp,
+      faArrowDown,
+      faPercent,
+      faUsers,
+      faChartBar,
+      faChartPie
+    );
   }
 }
