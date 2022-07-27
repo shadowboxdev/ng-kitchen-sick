@@ -15,7 +15,8 @@
         "inlineStyleLanguage": "scss",
         "assets": ["apps/ui/src/favicon.ico", "apps/ui/src/assets"],
         "styles": ["apps/ui/src/styles.scss"],
-        "scripts": []
+        "scripts": [],
+        "allowedCommonJsDependencies": ["keycloak-js", "js-sha256", "base64-js"]
       },
       "configurations": {
         "production": {
@@ -62,6 +63,7 @@
       },
       "defaultConfiguration": "development",
       "options": {
+        "browserTarget": "tsv-ui:build:development",
         "proxyConfig": "apps/ui/proxy.conf.json"
       }
     },

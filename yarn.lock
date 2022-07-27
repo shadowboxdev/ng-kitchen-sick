@@ -8519,7 +8519,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"base64-js@npm:^1.0.2, base64-js@npm:^1.2.0, base64-js@npm:^1.3.1":
+"base64-js@npm:^1.0.2, base64-js@npm:^1.2.0, base64-js@npm:^1.3.1, base64-js@npm:^1.5.1":
   version: 1.5.1
   resolution: "base64-js@npm:1.5.1"
   checksum: 669632eb3745404c2f822a18fc3a0122d2f9a7a13f7fb8b5823ee19d1d2ff9ee5b52c53367176ea4ad093c332fd5ab4bd0ebae5a8e27917a4105a4cfc86b1005
@@ -16143,6 +16143,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"js-sha256@npm:^0.9.0":
+  version: 0.9.0
+  resolution: "js-sha256@npm:0.9.0"
+  checksum: ffad54b3373f81581e245866abfda50a62c483803a28176dd5c28fd2d313e0bdf830e77dac7ff8afd193c53031618920f3d98daf21cbbe80082753ab639c0365
+  languageName: node
+  linkType: hard
+
 "js-string-escape@npm:^1.0.1":
   version: 1.0.1
   resolution: "js-string-escape@npm:1.0.1"
@@ -16396,6 +16403,30 @@ __metadata:
   dependencies:
     source-map-support: ^0.5.5
   checksum: 7a482bc836c70f8c1d9468382a9e1c887d032697f6ace97fac90b02e73d0523cb59fc0af8759356293e6bc4ce3a17bab59b331bad0560cab9dd77ac65b343de8
+  languageName: node
+  linkType: hard
+
+"keycloak-angular@npm:^12.0.0":
+  version: 12.0.0
+  resolution: "keycloak-angular@npm:12.0.0"
+  dependencies:
+    tslib: ^2.3.0
+  peerDependencies:
+    "@angular/common": ^14
+    "@angular/core": ^14
+    "@angular/router": ^14
+    keycloak-js: ^18
+  checksum: 1c0a014c4805332e307864b5f1fc0ae8e771d8409ab9360cf446dabaad38a7443bd4c98862ee6a76b36708334266f880587f552c5895e18cd9e8dbc4d8af64e1
+  languageName: node
+  linkType: hard
+
+"keycloak-js@npm:^19.0.0":
+  version: 19.0.0
+  resolution: "keycloak-js@npm:19.0.0"
+  dependencies:
+    base64-js: ^1.5.1
+    js-sha256: ^0.9.0
+  checksum: 465ac32f01ec21a71407a55bdc8150e2b8ac5d2ad4f6b657c62b27b06d27d49cbb25fa178d1e3c2b9f56fab3797dd0464a0a8eb7c0bb6ea63a9da2476a1bdd21
   languageName: node
   linkType: hard
 
@@ -17986,6 +18017,8 @@ __metadata:
     husky: ^8.0.1
     jest: 27.5.1
     jest-preset-angular: ~11.1.2
+    keycloak-angular: ^12.0.0
+    keycloak-js: ^19.0.0
     ngx-google-analytics: ^14.0.0
     ngx-permissions: ^13.0.1
     nx: 14.4.2

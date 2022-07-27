@@ -1,10 +1,12 @@
 {
     "cSpell.words": [
         "Buildable",
+        "cacheable",
         "commitlint",
         "dasherize",
         "fontawesome",
         "fortawesome",
+        "Keycloak",
         "nestjs",
         "ngcc",
         "nrwl",

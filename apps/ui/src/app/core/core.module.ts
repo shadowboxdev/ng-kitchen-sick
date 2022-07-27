@@ -40,6 +40,7 @@ import {
   TranslateService
 } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { NgxGoogleAnalyticsRouterModule } from 'ngx-google-analytics';
 import { NgxPermissionsModule, NgxPermissionsService } from 'ngx-permissions';
 
@@ -62,6 +63,7 @@ const MAT_IMPORTS: Type<unknown>[] = [MatSnackBarModule];
 const OTHER_IMPORTS: (Type<unknown> | ModuleWithProviders<{}>)[] = [
   NgxGoogleAnalyticsRouterModule,
   FontAwesomeModule,
+  KeycloakAngularModule,
   TranslateModule.forRoot({
     loader: {
       provide: TranslateLoader,
@@ -80,6 +82,12 @@ const PROVIDERS: Provider[] = [
     provide: APP_INITIALIZER,
     useFactory: (ps: NgxPermissionsService) => () => ps.loadPermissions([]),
     deps: [NgxPermissionsService],
+    multi: true
+  },
+  {
+    provide: APP_INITIALIZER,
+    useFactory: initializeKeycloak,
+    deps: [KeycloakService],
     multi: true
   }
 ];
@@ -137,4 +145,20 @@ function httpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 
 function throwAlreadyLoadedError(): void {
   throw new Error('CoreModule is already loaded. Import only in AppModule');
+}
+
+function initializeKeycloak(keycloak: KeycloakService) {
+  return () =>
+    keycloak.init({
+      config: {
+        realm: 'keycloak-angular-sandbox',
+        url: 'http://localhost:8080',
+        clientId: 'keycloak-angular'
+      },
+      initOptions: {
+        onLoad: 'check-sso',
+        silentCheckSsoRedirectUri:
+          window.location.origin + '/assets/silent-check-sso.html'
+      }
+    });
 }
