@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import { HttpClient } from '@angular/common/http';
 import {
+  APP_INITIALIZER,
   ModuleWithProviders,
   NgModule,
   Optional,
@@ -40,6 +41,7 @@ import {
 } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { NgxGoogleAnalyticsRouterModule } from 'ngx-google-analytics';
+import { NgxPermissionsModule, NgxPermissionsService } from 'ngx-permissions';
 
 import { environment } from '../../environments/environment';
 import { HTTP_ERROR_INTERCEPTOR } from './interceptors';
@@ -59,28 +61,31 @@ const MAT_IMPORTS: Type<unknown>[] = [MatSnackBarModule];
 // 3rd party imports
 const OTHER_IMPORTS: (Type<unknown> | ModuleWithProviders<{}>)[] = [
   NgxGoogleAnalyticsRouterModule,
-  FontAwesomeModule
+  FontAwesomeModule,
+  TranslateModule.forRoot({
+    loader: {
+      provide: TranslateLoader,
+      useFactory: httpLoaderFactory,
+      deps: [HttpClient]
+    }
+  }),
+  NgxPermissionsModule.forRoot()
 ];
 
 const PROVIDERS: Provider[] = [
   HTTP_ERROR_INTERCEPTOR,
   APP_ERROR_HANDLER,
-  ROUTE_SERIALIZER
+  ROUTE_SERIALIZER,
+  {
+    provide: APP_INITIALIZER,
+    useFactory: (ps: NgxPermissionsService) => () => ps.loadPermissions([]),
+    deps: [NgxPermissionsService],
+    multi: true
+  }
 ];
 
 @NgModule({
-  imports: [
-    ...MAT_IMPORTS,
-    ...OTHER_IMPORTS,
-    ...STATE_IMPORTS,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: httpLoaderFactory,
-        deps: [HttpClient]
-      }
-    })
-  ],
+  imports: [...MAT_IMPORTS, ...OTHER_IMPORTS, ...STATE_IMPORTS],
   providers: [...PROVIDERS]
 })
 export class CoreModule {

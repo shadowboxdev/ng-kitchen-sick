@@ -5,6 +5,7 @@ import {
   FaIconLibrary,
   FontAwesomeModule
 } from '@fortawesome/angular-fontawesome';
+import { far } from '@fortawesome/free-regular-svg-icons';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 
 import { DashboardContainer } from './containers';
@@ -22,7 +23,6 @@ const OTHER_IMPORTS: Type<unknown>[] = [FontAwesomeModule];
 })
 export class DashboardModule {
   constructor(_faIconLibrary: FaIconLibrary) {
-    console.log('here');
-    _faIconLibrary.addIconPacks(fas);
+    _faIconLibrary.addIconPacks(fas, far);
   }
 }
