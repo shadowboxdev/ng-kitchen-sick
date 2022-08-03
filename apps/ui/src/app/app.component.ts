@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 
 import { MediaMatcher } from '@angular/cdk/layout';
@@ -22,11 +23,14 @@ export class AppComponent implements OnInit {
   constructor(
     private readonly _cd: ChangeDetectorRef,
     public readonly media: MediaMatcher,
-    private readonly keycloak: KeycloakService
+    private readonly keycloak: KeycloakService,
+    http: HttpClient
   ) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => this._cd.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
+
+    http.get('api/hello').subscribe(console.log);
   }
 
   public async ngOnInit(): Promise<void> {
@@ -34,8 +38,6 @@ export class AppComponent implements OnInit {
 
     if (this.isLoggedIn) {
       const userProfile = await this.keycloak.loadUserProfile();
-    } else {
-      this.login();
     }
   }
 

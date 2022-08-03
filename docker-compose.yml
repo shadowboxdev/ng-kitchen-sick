@@ -1,12 +1,37 @@
-version: '3'
+version: '3.9'
+
+volumes:
+  mysql_data:
+      driver: local
+
 services:
+  mariadb:
+      image: mariadb
+      volumes:
+        - mysql_data:/var/lib/mysql
+      environment:
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_DATABASE: keycloak
+        MYSQL_USER: keycloak
+        MYSQL_PASSWORD: password
+      # Copy-pasted from https://github.com/docker-library/mariadb/issues/94
+      healthcheck:
+        test: ["CMD", "mysqladmin", "ping", "--silent"]
   keycloak:
-    image: quay.io/keycloak/keycloak
-    environment:
-      KEYCLOAK_ADMIN: admin
-      KEYCLOAK_ADMIN_PASSWORD: admin
-    ports:
+      image: quay.io/keycloak/keycloak:19.0.1
+      environment:
+        DB_VENDOR: mariadb
+        DB_ADDR: mariadb
+        DB_DATABASE: keycloak
+        DB_USER: keycloak
+        DB_PASSWORD: password
+        KEYCLOAK_ADMIN: admin
+        KEYCLOAK_ADMIN_PASSWORD: admin
+        JGROUPS_DISCOVERY_PROTOCOL: JDBC_PING
+      ports:
       - 8080:8080
-    volumes:
+      volumes:
       - ./.config/auth/realm-keycloak-angular-sandbox.json:/opt/keycloak/data/import/realm-keycloak-angular-sandbox.json:ro
-    entrypoint: '/opt/keycloak/bin/kc.sh start-dev --import-realm'
+      entrypoint: '/opt/keycloak/bin/kc.sh start-dev --import-realm'
+      depends_on:
+        - mariadb

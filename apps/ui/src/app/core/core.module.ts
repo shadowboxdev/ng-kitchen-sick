@@ -10,6 +10,7 @@ import {
   Type
 } from '@angular/core';
 
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import {
@@ -159,6 +160,9 @@ function initializeKeycloak(keycloak: KeycloakService) {
         onLoad: 'check-sso',
         silentCheckSsoRedirectUri:
           window.location.origin + '/assets/silent-check-sso.html'
-      }
+      },
+      bearerExcludedUrls: ['/assets'],
+      shouldUpdateToken: (request) =>
+        coerceBooleanProperty(request.headers.get('token-update'))
     });
 }

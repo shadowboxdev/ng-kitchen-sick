@@ -1,0 +1,243 @@
+{
+    "clientId": "nest-api",
+    "baseUrl": "http://localhost:3333",
+    "surrogateAuthRequired": false,
+    "enabled": true,
+    "alwaysDisplayInConsole": false,
+    "clientAuthenticatorType": "client-secret",
+    "secret": "qYwCJmgsUy5OT6sCm3MoUyiJEZwBMlCX",
+    "redirectUris": ["http://localhost:3333"],
+    "webOrigins": [],
+    "notBefore": 0,
+    "bearerOnly": false,
+    "consentRequired": false,
+    "standardFlowEnabled": true,
+    "implicitFlowEnabled": false,
+    "directAccessGrantsEnabled": true,
+    "serviceAccountsEnabled": true,
+    "authorizationServicesEnabled": true,
+    "publicClient": false,
+    "frontchannelLogout": false,
+    "protocol": "openid-connect",
+    "attributes": {
+      "saml.assertion.signature": "false",
+      "saml.force.post.binding": "false",
+      "saml.multivalued.roles": "false",
+      "saml.encrypt": "false",
+      "backchannel.logout.revoke.offline.tokens": "false",
+      "saml.server.signature": "false",
+      "saml.server.signature.keyinfo.ext": "false",
+      "exclude.session.state.from.auth.response": "false",
+      "backchannel.logout.session.required": "true",
+      "client_credentials.use_refresh_token": "false",
+      "saml_force_name_id_format": "false",
+      "saml.client.signature": "false",
+      "tls.client.certificate.bound.access.tokens": "false",
+      "saml.authnstatement": "false",
+      "display.on.consent.screen": "false",
+      "saml.onetimeuse.condition": "false"
+    },
+    "authenticationFlowBindingOverrides": {},
+    "fullScopeAllowed": true,
+    "nodeReRegistrationTimeout": -1,
+    "protocolMappers": [
+      {
+        "id": "6fbaab3b-4c05-43ec-86b2-b4c87f8276e4",
+        "name": "Client ID",
+        "protocol": "openid-connect",
+        "protocolMapper": "oidc-usersessionmodel-note-mapper",
+        "consentRequired": false,
+        "config": {
+          "user.session.note": "clientId",
+          "userinfo.token.claim": "true",
+          "id.token.claim": "true",
+          "access.token.claim": "true",
+          "claim.name": "clientId",
+          "jsonType.label": "String"
+        }
+      },
+      {
+        "id": "01579094-e8a3-45ce-b6b9-6df14fdce1c9",
+        "name": "Client Host",
+        "protocol": "openid-connect",
+        "protocolMapper": "oidc-usersessionmodel-note-mapper",
+        "consentRequired": false,
+        "config": {
+          "user.session.note": "clientHost",
+          "userinfo.token.claim": "true",
+          "id.token.claim": "true",
+          "access.token.claim": "true",
+          "claim.name": "clientHost",
+          "jsonType.label": "String"
+        }
+      },
+      {
+        "id": "eaa234ca-29b9-4c17-89e4-767f238bb8c2",
+        "name": "Client IP Address",
+        "protocol": "openid-connect",
+        "protocolMapper": "oidc-usersessionmodel-note-mapper",
+        "consentRequired": false,
+        "config": {
+          "user.session.note": "clientAddress",
+          "userinfo.token.claim": "true",
+          "id.token.claim": "true",
+          "access.token.claim": "true",
+          "claim.name": "clientAddress",
+          "jsonType.label": "String"
+        }
+      }
+    ],
+    "defaultClientScopes": [
+      "web-origins",
+      "role_list",
+      "roles",
+      "profile",
+      "email"
+    ],
+    "optionalClientScopes": [
+      "address",
+      "phone",
+      "offline_access",
+      "microprofile-jwt"
+    ],
+    "authorizationSettings": {
+      "allowRemoteResourceManagement": true,
+      "policyEnforcementMode": "ENFORCING",
+      "resources": [
+        {
+          "name": "Default Resource",
+          "type": "urn:nest-api:resources:default",
+          "ownerManagedAccess": false,
+          "attributes": {},
+          "_id": "996c42dc-fc92-466d-a2ed-790257a5807c",
+          "uris": ["/*"]
+        },
+        {
+          "name": "Product",
+          "ownerManagedAccess": false,
+          "displayName": "Product",
+          "attributes": {},
+          "_id": "4217187a-9be4-45eb-8ee2-1c9775b5c259",
+          "uris": [],
+          "scopes": [
+            {
+              "name": "Create"
+            },
+            {
+              "name": "Delete"
+            },
+            {
+              "name": "Edit"
+            },
+            {
+              "name": "View"
+            }
+          ]
+        }
+      ],
+      "policies": [
+        {
+          "id": "ccba6768-3282-4807-a0fb-0ee7475d8df4",
+          "name": "Default Policy",
+          "description": "A policy that grants access only for users within this realm",
+          "type": "js",
+          "logic": "POSITIVE",
+          "decisionStrategy": "AFFIRMATIVE",
+          "config": {
+            "code": "// by default, grants any permission associated with this policy\n$evaluation.grant();\n"
+          }
+        },
+        {
+          "id": "2cca82f4-f4a5-410f-b913-ee02c84ca30e",
+          "name": "User Policy",
+          "description": "\"user\" policy",
+          "type": "user",
+          "logic": "POSITIVE",
+          "decisionStrategy": "UNANIMOUS",
+          "config": {
+            "users": "[\"user\"]"
+          }
+        },
+        {
+          "id": "c19885cf-95ec-4d5d-905c-3c6b5857b76f",
+          "name": "Admin Policy",
+          "description": "For \"admin\" user",
+          "type": "user",
+          "logic": "POSITIVE",
+          "decisionStrategy": "UNANIMOUS",
+          "config": {
+            "users": "[\"admin\"]"
+          }
+        },
+        {
+          "id": "10b15b1e-1b43-4083-b816-b2b9b8168d34",
+          "name": "Default Permission",
+          "description": "A permission that applies to the default resource type",
+          "type": "resource",
+          "logic": "POSITIVE",
+          "decisionStrategy": "UNANIMOUS",
+          "config": {
+            "defaultResourceType": "urn:nest-api:resources:default",
+            "applyPolicies": "[\"Default Policy\"]"
+          }
+        },
+        {
+          "id": "64538fdb-2440-4f07-a7b8-78b5c878d202",
+          "name": "Create Permission for \"user\"",
+          "description": "Allow create permission for \"user\" with scope \"Create\"",
+          "type": "scope",
+          "logic": "POSITIVE",
+          "decisionStrategy": "UNANIMOUS",
+          "config": {
+            "resources": "[\"Product\"]",
+            "scopes": "[\"Create\"]",
+            "applyPolicies": "[\"User Policy\"]"
+          }
+        },
+        {
+          "id": "7d779593-6a04-4395-89f6-2a343052cadd",
+          "name": "List products for \"user\"",
+          "description": "List all products for user",
+          "type": "scope",
+          "logic": "POSITIVE",
+          "decisionStrategy": "UNANIMOUS",
+          "config": {
+            "resources": "[\"Product\"]",
+            "scopes": "[\"View\"]",
+            "applyPolicies": "[\"User Policy\"]"
+          }
+        },
+        {
+          "id": "44d6a4a4-9458-418e-9f4b-acb3bf78ff79",
+          "name": "All Permissions",
+          "description": "Grant all permissions to \"admin\"",
+          "type": "scope",
+          "logic": "POSITIVE",
+          "decisionStrategy": "UNANIMOUS",
+          "config": {
+            "scopes": "[\"Edit\",\"View\",\"Create\",\"Delete\"]",
+            "applyPolicies": "[\"Admin Policy\"]"
+          }
+        }
+      ],
+      "scopes": [
+        {
+          "id": "8d4cc37f-33ba-4279-a3ce-47531c299aa6",
+          "name": "Edit"
+        },
+        {
+          "id": "10c1680c-bc32-4c08-9bc7-e4d18a54f1d5",
+          "name": "View"
+        },
+        {
+          "id": "e49f7d63-6a6f-45de-9b20-15b2184157bc",
+          "name": "Delete"
+        },
+        {
+          "id": "b0ef86d3-a543-461c-9b42-73434ddc0851",
+          "name": "Create"
+        }
+      ],
+      "decisionStrategy": "AFFIRMATIVE"
+    }
+  }
