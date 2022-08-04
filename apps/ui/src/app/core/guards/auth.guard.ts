@@ -24,11 +24,7 @@ export class AuthGuard extends KeycloakAuthGuard {
     state: RouterStateSnapshot
   ): Promise<boolean> {
     // Force the user to log in if currently unauthenticated.
-    if (!this.authenticated) {
-      await this.keycloak.login({
-        redirectUri: window.location.origin + state.url
-      });
-    }
+    if (!this.authenticated) await this._login(state.url);
 
     // Get the roles required from the route.
     const requiredRoles = route.data['roles'];
@@ -38,5 +34,11 @@ export class AuthGuard extends KeycloakAuthGuard {
 
     // Allow the user to proceed if all the required roles are present.
     return requiredRoles.every(included(this.roles));
+  }
+
+  private async _login(url: string): Promise<void> {
+    return await this.keycloak.login({
+      redirectUri: `${window.location.origin}${url}`
+    });
   }
 }

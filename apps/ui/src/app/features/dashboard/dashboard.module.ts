@@ -14,6 +14,7 @@ import {
   faUsers
 } from '@fortawesome/free-solid-svg-icons';
 
+import { LayoutModule } from '../../shared/layout';
 import { DashboardContainer } from './containers';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 
@@ -21,11 +22,18 @@ const DECLARATIONS: Type<unknown>[] = [DashboardContainer];
 
 const NG_IMPORTS: Type<unknown>[] = [CommonModule];
 
+const SHARED_IMPORTS: Type<unknown>[] = [LayoutModule];
+
 const OTHER_IMPORTS: Type<unknown>[] = [FontAwesomeModule];
 
 @NgModule({
   declarations: [...DECLARATIONS],
-  imports: [...NG_IMPORTS, ...OTHER_IMPORTS, DashboardRoutingModule]
+  imports: [
+    ...NG_IMPORTS,
+    ...OTHER_IMPORTS,
+    ...SHARED_IMPORTS,
+    DashboardRoutingModule
+  ]
 })
 export class DashboardModule {
   constructor(_faIconLibrary: FaIconLibrary) {

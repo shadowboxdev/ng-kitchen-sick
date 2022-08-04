@@ -13,25 +13,6 @@ import {
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
-import {
-  FaIconLibrary,
-  FontAwesomeModule
-} from '@fortawesome/angular-fontawesome';
-import {
-  faGithub,
-  faMediumM,
-  faTwitter,
-  faInstagram,
-  faYoutube
-} from '@fortawesome/free-brands-svg-icons';
-import {
-  faCog,
-  faBars,
-  faRocket,
-  faPowerOff,
-  faUserCircle,
-  faPlayCircle
-} from '@fortawesome/free-solid-svg-icons';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -63,7 +44,6 @@ const MAT_IMPORTS: Type<unknown>[] = [MatSnackBarModule];
 // 3rd party imports
 const OTHER_IMPORTS: (Type<unknown> | ModuleWithProviders<{}>)[] = [
   NgxGoogleAnalyticsRouterModule,
-  FontAwesomeModule,
   KeycloakAngularModule,
   TranslateModule.forRoot({
     loader: {
@@ -102,29 +82,11 @@ export class CoreModule {
     @Optional()
     @SkipSelf()
     parentModule: CoreModule,
-    private readonly _faIconLibrary: FaIconLibrary,
     private readonly _translate: TranslateService
   ) {
     if (parentModule) throwAlreadyLoadedError();
 
-    this._addFaIcons();
     this._setI18n();
-  }
-
-  private _addFaIcons(): void {
-    this._faIconLibrary.addIcons(
-      faCog,
-      faBars,
-      faRocket,
-      faPowerOff,
-      faUserCircle,
-      faPlayCircle,
-      faGithub,
-      faMediumM,
-      faTwitter,
-      faInstagram,
-      faYoutube
-    );
   }
 
   private _setI18n(): void {
