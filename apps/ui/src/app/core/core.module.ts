@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import { HttpClient } from '@angular/common/http';
 import {
-  APP_INITIALIZER,
   ModuleWithProviders,
   NgModule,
   Optional,
@@ -10,7 +9,6 @@ import {
   Type
 } from '@angular/core';
 
-import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
@@ -22,12 +20,14 @@ import {
   TranslateService
 } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
+import { KeycloakAngularModule } from 'keycloak-angular';
 import { NgxGoogleAnalyticsRouterModule } from 'ngx-google-analytics';
-import { NgxPermissionsModule, NgxPermissionsService } from 'ngx-permissions';
+import { NgxPermissionsModule } from 'ngx-permissions';
 
 import { environment } from '../../environments/environment';
+import { AuthModule } from './auth';
 import { HTTP_ERROR_INTERCEPTOR } from './interceptors';
+import { PermissionsModule } from './permissions';
 import { reducers, metaReducers } from './reducers';
 import { ROUTE_SERIALIZER } from './routing';
 import { APP_ERROR_HANDLER } from './services';
@@ -42,7 +42,11 @@ const STATE_IMPORTS: (Type<unknown> | ModuleWithProviders<{}> | never[])[] = [
 
 const MAT_IMPORTS: Type<unknown>[] = [MatSnackBarModule];
 
-const CORE_IMPORTS: Type<unknown>[] = [SessionModule];
+const CORE_IMPORTS: Type<unknown>[] = [
+  AuthModule,
+  PermissionsModule,
+  SessionModule
+];
 
 // 3rd party imports
 const OTHER_IMPORTS: (Type<unknown> | ModuleWithProviders<{}>)[] = [
@@ -61,19 +65,7 @@ const OTHER_IMPORTS: (Type<unknown> | ModuleWithProviders<{}>)[] = [
 const PROVIDERS: Provider[] = [
   HTTP_ERROR_INTERCEPTOR,
   APP_ERROR_HANDLER,
-  ROUTE_SERIALIZER,
-  {
-    provide: APP_INITIALIZER,
-    useFactory: (ps: NgxPermissionsService) => () => ps.loadPermissions([]),
-    deps: [NgxPermissionsService],
-    multi: true
-  },
-  {
-    provide: APP_INITIALIZER,
-    useFactory: initializeKeycloak,
-    deps: [KeycloakService],
-    multi: true
-  }
+  ROUTE_SERIALIZER
 ];
 
 @NgModule({
@@ -116,23 +108,4 @@ function httpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 
 function throwAlreadyLoadedError(): void {
   throw new Error('CoreModule is already loaded. Import only in AppModule');
-}
-
-function initializeKeycloak(keycloak: KeycloakService) {
-  return () =>
-    keycloak.init({
-      config: {
-        realm: 'keycloak-angular-sandbox',
-        url: 'http://localhost:8080',
-        clientId: 'keycloak-angular'
-      },
-      initOptions: {
-        onLoad: 'check-sso',
-        silentCheckSsoRedirectUri:
-          window.location.origin + '/assets/silent-check-sso.html'
-      },
-      bearerExcludedUrls: ['/assets'],
-      shouldUpdateToken: (request) =>
-        coerceBooleanProperty(request.headers.get('token-update'))
-    });
 }

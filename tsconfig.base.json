@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@sdw/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@sdw/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@sdw/models": ["libs/models/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -91,6 +91,7 @@
     "@nrwl/devkit": "^14.4.3",
     "@nrwl/eslint-plugin-nx": "14.4.2",
     "@nrwl/jest": "14.4.2",
+    "@nrwl/js": "14.4.2",
     "@nrwl/linter": "14.4.2",
     "@nrwl/nest": "14.4.2",
     "@nrwl/node": "14.4.2",
