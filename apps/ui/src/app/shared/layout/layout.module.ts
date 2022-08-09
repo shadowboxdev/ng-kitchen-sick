@@ -2,7 +2,9 @@ import { CommonModule } from '@angular/common';
 import { NgModule, Type } from '@angular/core';
 
 import { LayoutModule as CdkLayoutModule } from '@angular/cdk/layout';
+import { CdkMenuModule } from '@angular/cdk/menu';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -29,21 +31,24 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 import { LayoutComponent } from './components/layout.component';
+import { OutlinedIconDirective } from './directives/outlined-icon.directive';
 
 const NG_IMPORTS: Type<unknown>[] = [CommonModule];
 
 const MAT_IMPORTS: Type<unknown>[] = [
+  CdkMenuModule,
   CdkLayoutModule,
   MatSidenavModule,
   MatToolbarModule,
   MatIconModule,
   MatButtonModule,
-  MatListModule
+  MatListModule,
+  MatCardModule
 ];
 
 const OTHER_IMPORTS: Type<unknown>[] = [FontAwesomeModule];
 
-const DECLARATIONS: Type<unknown>[] = [LayoutComponent];
+const DECLARATIONS: Type<unknown>[] = [LayoutComponent, OutlinedIconDirective];
 
 @NgModule({
   declarations: [...DECLARATIONS],

@@ -35,3 +35,39 @@
          `<body>` to be our scrolling element for mobile layouts. */
   flex: 1 0 auto;
 }
+
+//Menu
+.user-menu-wrapper {
+  min-width: 50vw;
+  max-width: 50vw;
+}
+
+.user-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-menu-item {
+  display: flex;
+  min-width: 64px;
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 16px;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  line-height: 36px;
+  user-select: none;
+
+  &:hover {
+    background-color: rgb(208 208 208);
+  }
+  
+  &:active {
+    background-color: rgb(170 170 170);
+  }
+}
+
+
+

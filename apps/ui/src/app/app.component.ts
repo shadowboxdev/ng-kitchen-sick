@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
 
     if (this.isLoggedIn) {
       const userProfile = await this._keycloak.loadUserProfile();
+      console.log(userProfile);
     }
   }
 

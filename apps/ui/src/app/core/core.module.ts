@@ -31,6 +31,7 @@ import { HTTP_ERROR_INTERCEPTOR } from './interceptors';
 import { reducers, metaReducers } from './reducers';
 import { ROUTE_SERIALIZER } from './routing';
 import { APP_ERROR_HANDLER } from './services';
+import { SessionModule } from './session';
 
 // state imports
 const STATE_IMPORTS: (Type<unknown> | ModuleWithProviders<{}> | never[])[] = [
@@ -40,6 +41,8 @@ const STATE_IMPORTS: (Type<unknown> | ModuleWithProviders<{}> | never[])[] = [
 ];
 
 const MAT_IMPORTS: Type<unknown>[] = [MatSnackBarModule];
+
+const CORE_IMPORTS: Type<unknown>[] = [SessionModule];
 
 // 3rd party imports
 const OTHER_IMPORTS: (Type<unknown> | ModuleWithProviders<{}>)[] = [
@@ -74,7 +77,12 @@ const PROVIDERS: Provider[] = [
 ];
 
 @NgModule({
-  imports: [...MAT_IMPORTS, ...OTHER_IMPORTS, ...STATE_IMPORTS],
+  imports: [
+    ...MAT_IMPORTS,
+    ...CORE_IMPORTS,
+    ...OTHER_IMPORTS,
+    ...STATE_IMPORTS
+  ],
   providers: [...PROVIDERS]
 })
 export class CoreModule {

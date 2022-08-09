@@ -7,6 +7,12 @@ import {
 } from '@angular/core';
 
 import { MediaMatcher } from '@angular/cdk/layout';
+import { ConnectedPosition } from '@angular/cdk/overlay';
+
+export interface Section {
+  name: string;
+  updated: Date;
+}
 
 @Component({
   selector: 'sdw-layout',
@@ -22,10 +28,47 @@ export class LayoutComponent {
   private readonly _mobileQueryListener!: () => void;
 
   public readonly mobileQuery!: MediaQueryList;
-  public readonly fillerNav = Array.from(
-    { length: 50 },
-    (_, i) => `Nav Item ${i + 1}`
-  );
+
+  public _positions: ConnectedPosition[] = [
+    {
+      originX: 'start',
+      originY: 'bottom',
+      overlayX: 'start',
+      overlayY: 'top',
+      offsetY: 20
+    },
+    {
+      originX: 'start',
+      originY: 'top',
+      overlayX: 'start',
+      overlayY: 'bottom'
+    }
+  ];
+
+  public folders: Section[] = [
+    {
+      name: 'Photos',
+      updated: new Date('1/1/16')
+    },
+    {
+      name: 'Recipes',
+      updated: new Date('1/17/16')
+    },
+    {
+      name: 'Work',
+      updated: new Date('1/28/16')
+    }
+  ];
+  public notes: Section[] = [
+    {
+      name: 'Vacation Itinerary',
+      updated: new Date('2/20/16')
+    },
+    {
+      name: 'Kitchen Remodel',
+      updated: new Date('1/18/16')
+    }
+  ];
 
   constructor(
     private readonly _cd: ChangeDetectorRef,
