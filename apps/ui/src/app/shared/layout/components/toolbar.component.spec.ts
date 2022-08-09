@@ -1,14 +1,14 @@
 import { Spectator, createComponentFactory } from '@ngneat/spectator/jest';
 
-import { DashboardModule } from '../dashboard.module';
-import { DashboardContainer } from './dashboard.container';
+import { LayoutModule } from '../layout.module';
+import { ToolbarComponent } from './toolbar.component';
 
-describe('DashboardContainer', () => {
-  let spectator: Spectator<DashboardContainer>;
+describe('ToolbarComponent', () => {
+  let spectator: Spectator<ToolbarComponent>;
 
   const createComponent = createComponentFactory({
-    component: DashboardContainer,
-    imports: [DashboardModule]
+    component: ToolbarComponent,
+    imports: [LayoutModule]
   });
 
   beforeEach(() => (spectator = createComponent()));

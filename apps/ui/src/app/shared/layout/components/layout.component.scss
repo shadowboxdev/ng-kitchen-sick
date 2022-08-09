@@ -3,71 +3,11 @@
   height: 100%;
 }
 
-.example-container {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-}
-  
-.example-is-mobile .example-toolbar {
-  position: fixed;
-  
-  /* Make sure the toolbar will stay on top of the content as it scrolls past. */
-  z-index: 2;
-}
-  
-.example-app-name {
-  margin-left: 8px;
-}
-  
-.example-sidenav-container {
-  /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
-         causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
-  flex: 1;
-}
-  
-.example-is-mobile .example-sidenav-container {
-  /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
+.is-mobile {
+  .sidenav-container {
+    /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
          `<body>` to be our scrolling element for mobile layouts. */
-  flex: 1 0 auto;
-}
-
-//Menu
-.user-menu-wrapper {
-  min-width: 50vw;
-  max-width: 50vw;
-}
-
-.user-menu {
-  display: flex;
-  flex-direction: column;
-}
-
-.user-menu-item {
-  display: flex;
-  min-width: 64px;
-  flex: 1;
-  flex-direction: row;
-  align-items: center;
-  padding: 0 16px;
-  border: 0;
-  background-color: transparent;
-  cursor: pointer;
-  line-height: 36px;
-  user-select: none;
-
-  &:hover {
-    background-color: rgb(208 208 208);
-  }
-  
-  &:active {
-    background-color: rgb(170 170 170);
+    flex: 1 0 auto;
   }
 }
-
-
 

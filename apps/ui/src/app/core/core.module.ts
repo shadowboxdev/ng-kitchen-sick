@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/ban-types */
-import { HttpClient } from '@angular/common/http';
 import {
   ModuleWithProviders,
   NgModule,
@@ -14,18 +13,12 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import {
-  TranslateLoader,
-  TranslateModule,
-  TranslateService
-} from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { KeycloakAngularModule } from 'keycloak-angular';
+import { TranslateService } from '@ngx-translate/core';
 import { NgxGoogleAnalyticsRouterModule } from 'ngx-google-analytics';
-import { NgxPermissionsModule } from 'ngx-permissions';
 
 import { environment } from '../../environments/environment';
 import { AuthModule } from './auth';
+import { I18nModule } from './i18n';
 import { HTTP_ERROR_INTERCEPTOR } from './interceptors';
 import { PermissionsModule } from './permissions';
 import { reducers, metaReducers } from './reducers';
@@ -45,21 +38,13 @@ const MAT_IMPORTS: Type<unknown>[] = [MatSnackBarModule];
 const CORE_IMPORTS: Type<unknown>[] = [
   AuthModule,
   PermissionsModule,
+  I18nModule,
   SessionModule
 ];
 
 // 3rd party imports
 const OTHER_IMPORTS: (Type<unknown> | ModuleWithProviders<{}>)[] = [
-  NgxGoogleAnalyticsRouterModule,
-  KeycloakAngularModule,
-  TranslateModule.forRoot({
-    loader: {
-      provide: TranslateLoader,
-      useFactory: httpLoaderFactory,
-      deps: [HttpClient]
-    }
-  }),
-  NgxPermissionsModule.forRoot()
+  NgxGoogleAnalyticsRouterModule
 ];
 
 const PROVIDERS: Provider[] = [
@@ -85,25 +70,7 @@ export class CoreModule {
     private readonly _translate: TranslateService
   ) {
     if (parentModule) throwAlreadyLoadedError();
-
-    this._setI18n();
   }
-
-  private _setI18n(): void {
-    this._translate.addLangs(['en', 'fr']);
-    this._translate.setDefaultLang('en');
-
-    const browserLang = this._translate.getBrowserLang();
-    this._translate.use(browserLang?.match(/en|fr/) ? browserLang : 'en');
-  }
-}
-
-function httpLoaderFactory(http: HttpClient): TranslateHttpLoader {
-  return new TranslateHttpLoader(
-    http,
-    `${environment.i18nPrefix}/assets/i18n/`,
-    '.json'
-  );
 }
 
 function throwAlreadyLoadedError(): void {

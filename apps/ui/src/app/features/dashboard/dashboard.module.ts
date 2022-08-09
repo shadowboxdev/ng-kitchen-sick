@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { NgModule, Type } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
+import { MatFabMenuModule } from '@angular-material-extensions/fab-menu';
 import {
   FaIconLibrary,
   FontAwesomeModule
@@ -20,20 +22,19 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 
 const DECLARATIONS: Type<unknown>[] = [DashboardContainer];
 
-const NG_IMPORTS: Type<unknown>[] = [CommonModule];
+const NG_IMPORTS: Type<unknown>[] = [CommonModule, FlexLayoutModule];
 
 const SHARED_IMPORTS: Type<unknown>[] = [LayoutModule];
 
-const OTHER_IMPORTS: Type<unknown>[] = [FontAwesomeModule];
+const OTHER_IMPORTS: Type<unknown>[] = [
+  FontAwesomeModule,
+  MatFabMenuModule,
+  DashboardRoutingModule
+];
 
 @NgModule({
   declarations: [...DECLARATIONS],
-  imports: [
-    ...NG_IMPORTS,
-    ...OTHER_IMPORTS,
-    ...SHARED_IMPORTS,
-    DashboardRoutingModule
-  ]
+  imports: [...NG_IMPORTS, ...OTHER_IMPORTS, ...SHARED_IMPORTS]
 })
 export class DashboardModule {
   constructor(_faIconLibrary: FaIconLibrary) {

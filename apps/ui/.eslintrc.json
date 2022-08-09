@@ -42,6 +42,12 @@
       }
     },
     {
+      "files": ["*.spec.ts"],
+      "rules": {
+        "@typescript-eslint/init-declarations": "off"
+      }
+    },
+    {
       "files": ["*.stories.ts"],
       "rules": {
         "@typescript-eslint/naming-convention": "off"

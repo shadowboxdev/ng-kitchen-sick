@@ -1,0 +1,441 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LayoutComponent should render dashboard 1`] = `
+<sdw-layout
+  __ngContext__={[Function Number]}
+  _cd={[Function ViewRef$1]}
+  _mobileQueryListener={[Function Function]}
+  _sideNav={[Function MatSidenav]}
+  media={[Function MediaMatcher]}
+  mobileQuery={[Function Object]}
+>
+  <div
+    class="absolute top-0 left-0 right-0 bottom-0 flex flex-col mat-typography"
+  >
+    <sdw-toolbar>
+      <mat-toolbar
+        class="mat-toolbar sm:fized sm:z-2 flex flex-col mat-primary mat-toolbar-single-row"
+        color="primary"
+      >
+        <button
+          class="mat-focus-indicator mat-icon-button mat-button-base _mat-animation-noopable"
+          mat-icon-button=""
+        >
+          <span
+            class="mat-button-wrapper"
+          >
+            <mat-icon
+              aria-hidden="true"
+              class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"
+              data-mat-icon-type="font"
+              role="img"
+            >
+              menu
+            </mat-icon>
+          </span>
+          <span
+            class="mat-ripple mat-button-ripple mat-button-ripple-round"
+            matripple=""
+          />
+          <span
+            class="mat-button-focus-overlay"
+          />
+        </button>
+        <h1
+          class="ml-8 hidden sm:block"
+        >
+          Responsive App
+        </h1>
+        <span
+          class="flex flex-1"
+        />
+        <div
+          class="w-72 text-black"
+        >
+          <div
+            class="relative"
+          >
+            <input
+              autocomplete="off"
+              class="w-full rounded-lg border border-gray-200"
+              placeholder="Search..."
+              type="search"
+            />
+          </div>
+        </div>
+        <div
+          class="hidden md:block"
+        >
+          <div
+            class="ml-4 flex items-center md:ml-6"
+          >
+            <button
+              class="mat-focus-indicator max-w-xs rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white mat-icon-button mat-button-base _mat-animation-noopable"
+              mat-icon-button=""
+            >
+              <span
+                class="mat-button-wrapper"
+              >
+                <span
+                  class="sr-only"
+                >
+                  View notifications
+                </span>
+                <mat-icon
+                  aria-hidden="true"
+                  class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color material-icons-outlined"
+                  data-mat-icon-type="font"
+                  outlined=""
+                  role="img"
+                >
+                  notifications
+                </mat-icon>
+              </span>
+              <span
+                class="mat-ripple mat-button-ripple mat-button-ripple-round"
+                matripple=""
+              />
+              <span
+                class="mat-button-focus-overlay"
+              />
+            </button>
+            <div
+              class="ml-3 relative"
+            >
+              <button
+                aria-expanded="false"
+                aria-haspopup="true"
+                class="cdk-menu-trigger max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                data-cdk-menu-stack-id="1"
+                id="user-menu-button"
+                role="button"
+              >
+                <span
+                  class="sr-only"
+                >
+                  Open user menu
+                </span>
+                <img
+                  alt=""
+                  class="h-8 w-8 rounded-full"
+                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+      </mat-toolbar>
+    </sdw-toolbar>
+    <mat-sidenav-container
+      class="mat-drawer-container mat-sidenav-container flex-1"
+      style="margin-top: 0px;"
+    >
+      <div
+        class="mat-drawer-backdrop"
+      />
+      <div
+        aria-hidden="true"
+        class="cdk-visually-hidden cdk-focus-trap-anchor"
+      />
+      <mat-sidenav
+        class="mat-drawer mat-sidenav ng-trigger ng-trigger-transform mat-drawer-side"
+        fixedtopgap="56"
+        style="box-shadow:none;visibility:hidden;0:box-shadow;1:visibility;"
+        tabindex="-1"
+      >
+        <div
+          cdkscrollable=""
+          class="mat-drawer-inner-container"
+        >
+          <div
+            class="flex items-center justify-center bg-gray-100 py-6"
+          >
+            <div
+              class="flex w-full max-w-xs p-4 bg-white"
+            >
+              <ul
+                class="flex flex-col w-full"
+              >
+                <li
+                  class="my-px"
+                >
+                  <a
+                    class="flex flex-row items-center h-12 px-4 rounded-lg text-gray-600 bg-gray-100"
+                    href="#"
+                  >
+                    <span
+                      class="flex items-center justify-center text-lg text-gray-400"
+                    >
+                      <mat-icon
+                        aria-hidden="true"
+                        class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"
+                        data-mat-icon-type="font"
+                        role="img"
+                      >
+                        space_dashboard
+                      </mat-icon>
+                    </span>
+                    <span
+                      class="ml-3"
+                    >
+                      Dashboard
+                    </span>
+                    <span
+                      class="flex items-center justify-center text-sm text-gray-500 font-semibold bg-gray-200 h-6 px-2 rounded-full ml-auto"
+                    >
+                      3
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="my-px"
+                >
+                  <span
+                    class="flex font-medium text-sm text-gray-400 px-4 my-4 uppercase"
+                  >
+                    Projects
+                  </span>
+                </li>
+                <li
+                  class="my-px"
+                >
+                  <a
+                    class="flex flex-row items-center h-12 px-4 rounded-lg text-gray-600 hover:bg-gray-100"
+                    href="#"
+                  >
+                    <span
+                      class="flex items-center justify-center text-lg text-gray-400"
+                    >
+                      <mat-icon
+                        aria-hidden="true"
+                        class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"
+                        data-mat-icon-type="font"
+                        role="img"
+                      >
+                        inventory_2
+                      </mat-icon>
+                    </span>
+                    <span
+                      class="ml-3"
+                    >
+                      Manager
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="my-px"
+                >
+                  <a
+                    class="flex flex-row items-center h-12 px-4 rounded-lg text-gray-600 hover:bg-gray-100"
+                    href="#"
+                  >
+                    <span
+                      class="flex items-center justify-center text-lg text-gray-400"
+                    >
+                      <mat-icon
+                        aria-hidden="true"
+                        class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"
+                        data-mat-icon-type="font"
+                        role="img"
+                      >
+                        assignment
+                      </mat-icon>
+                    </span>
+                    <span
+                      class="ml-3"
+                    >
+                      Tasks
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="my-px"
+                >
+                  <a
+                    class="flex flex-row items-center h-12 px-4 rounded-lg text-gray-600 hover:bg-gray-100"
+                    href="#"
+                  >
+                    <span
+                      class="flex items-center justify-center text-lg text-gray-400"
+                    >
+                      <mat-icon
+                        aria-hidden="true"
+                        class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"
+                        data-mat-icon-type="font"
+                        role="img"
+                      >
+                        groups
+                      </mat-icon>
+                    </span>
+                    <span
+                      class="ml-3"
+                    >
+                      Clients
+                    </span>
+                    <span
+                      class="flex items-center justify-center text-sm text-gray-500 font-semibold bg-gray-200 h-6 px-2 rounded-full ml-auto"
+                    >
+                      1k
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="my-px"
+                >
+                  <a
+                    class="flex flex-row items-center h-12 px-4 rounded-lg text-gray-600 hover:bg-gray-100"
+                    href="#"
+                  >
+                    <span
+                      class="flex items-center justify-center text-lg text-green-400"
+                    >
+                      <mat-icon
+                        aria-hidden="true"
+                        class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"
+                        data-mat-icon-type="font"
+                        role="img"
+                      >
+                        add_circle
+                      </mat-icon>
+                    </span>
+                    <span
+                      class="ml-3"
+                    >
+                      Add new
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="my-px"
+                >
+                  <span
+                    class="flex font-medium text-sm text-gray-400 px-4 my-4 uppercase"
+                  >
+                    Account
+                  </span>
+                </li>
+                <li
+                  class="my-px"
+                >
+                  <a
+                    class="flex flex-row items-center h-12 px-4 rounded-lg text-gray-600 hover:bg-gray-100"
+                    href="#"
+                  >
+                    <span
+                      class="flex items-center justify-center text-lg text-gray-400"
+                    >
+                      <mat-icon
+                        aria-hidden="true"
+                        class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"
+                        data-mat-icon-type="font"
+                        role="img"
+                      >
+                        account_circle
+                      </mat-icon>
+                    </span>
+                    <span
+                      class="ml-3"
+                    >
+                      Profile
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="my-px"
+                >
+                  <a
+                    class="flex flex-row items-center h-12 px-4 rounded-lg text-gray-600 hover:bg-gray-100"
+                    href="#"
+                  >
+                    <span
+                      class="flex items-center justify-center text-lg text-gray-400"
+                    >
+                      <mat-icon
+                        aria-hidden="true"
+                        class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"
+                        data-mat-icon-type="font"
+                        role="img"
+                      >
+                        notifications
+                      </mat-icon>
+                    </span>
+                    <span
+                      class="ml-3"
+                    >
+                      Notifications
+                    </span>
+                    <span
+                      class="flex items-center justify-center text-sm text-gray-500 font-semibold bg-gray-200 h-6 px-2 rounded-full ml-auto"
+                    >
+                      10
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="my-px"
+                >
+                  <a
+                    class="flex flex-row items-center h-12 px-4 rounded-lg text-gray-600 hover:bg-gray-100"
+                    href="#"
+                  >
+                    <span
+                      class="flex items-center justify-center text-lg text-gray-400"
+                    >
+                      <mat-icon
+                        aria-hidden="true"
+                        class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"
+                        data-mat-icon-type="font"
+                        role="img"
+                      >
+                        settings
+                      </mat-icon>
+                    </span>
+                    <span
+                      class="ml-3"
+                    >
+                      Settings
+                    </span>
+                  </a>
+                </li>
+                <li
+                  class="my-px"
+                >
+                  <a
+                    class="flex flex-row items-center h-12 px-4 rounded-lg text-gray-600 hover:bg-gray-100"
+                    href="#"
+                  >
+                    <span
+                      class="flex items-center justify-center text-lg text-red-400"
+                    >
+                      <mat-icon
+                        aria-hidden="true"
+                        class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color"
+                        data-mat-icon-type="font"
+                        role="img"
+                      >
+                        logout
+                      </mat-icon>
+                    </span>
+                    <span
+                      class="ml-3"
+                    >
+                      Logout
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </mat-sidenav>
+      <div
+        aria-hidden="true"
+        class="cdk-visually-hidden cdk-focus-trap-anchor"
+      />
+      <mat-sidenav-content
+        class="mat-drawer-content mat-sidenav-content"
+      />
+    </mat-sidenav-container>
+  </div>
+</sdw-layout>
+`;

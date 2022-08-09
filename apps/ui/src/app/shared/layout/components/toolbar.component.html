@@ -1,0 +1,56 @@
+<mat-toolbar color="primary" class="sm:fized sm:z-2 flex flex-col">
+    <button mat-icon-button (click)="onToggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1 class="ml-8 hidden sm:block">Responsive App</h1>
+    <span class="flex flex-1"></span>
+    <!-- search box -->
+    <div class="w-72 text-black">
+      <div class="relative">
+        <input type="search" placeholder="Search..." class="w-full rounded-lg border border-gray-200" autocomplete="off" />
+      </div>
+    </div>
+
+    <div class="hidden md:block">
+      <div class="ml-4 flex items-center md:ml-6">
+        <button mat-icon-button class="max-w-xs rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+          <span class="sr-only">View notifications</span>
+          <mat-icon outlined>notifications</mat-icon>
+        </button>
+
+        <!-- Profile dropdown -->
+        <div class="ml-3 relative">
+          <button [cdkMenuTriggerFor]="menu" [cdkMenuPosition]="_positions" class="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+            <span class="sr-only">Open user menu</span>
+            <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+          </button>
+          <ng-template #menu>
+            <div class="user-menu-wrapper pl-4 pr-4">
+              <mat-card  cdkMenu class="user-menu">
+                <mat-card-header><mat-card-title>Paul Fuller</mat-card-title></mat-card-header>
+                <mat-card-content>
+                  <mat-nav-list>
+                    <div mat-subheader>Folders</div>
+                    <mat-list-item *ngFor="let folder of folders">
+                      <mat-icon mat-list-icon>folder</mat-icon>
+                      <div mat-line>{{folder.name}}</div>
+                      <div mat-line> {{folder.updated | date}} </div>
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                    <div mat-subheader>Notes</div>
+                    <mat-list-item *ngFor="let note of notes">
+                      <mat-icon mat-list-icon>note</mat-icon>
+                      <div mat-line>{{note.name}}</div>
+                      <div mat-line> {{note.updated | date}} </div>
+                    </mat-list-item>
+                  </mat-nav-list>
+                </mat-card-content>
+
+              </mat-card>
+            </div>
+
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </mat-toolbar>

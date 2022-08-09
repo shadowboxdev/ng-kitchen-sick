@@ -1,21 +1,25 @@
-import { TestBed, waitForAsync } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+
+import { Spectator, createComponentFactory } from '@ngneat/spectator/jest';
 
 import { LayoutModule } from '../layout.module';
 import { LayoutComponent } from './layout.component';
 
 describe('LayoutComponent', () => {
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [LayoutComponent],
-      imports: [NoopAnimationsModule, LayoutModule]
-    }).compileComponents();
-  }));
+  let spectator: Spectator<LayoutComponent>;
+
+  const createComponent = createComponentFactory({
+    component: LayoutComponent,
+    imports: [LayoutModule, NoopAnimationsModule]
+  });
+
+  beforeEach(() => (spectator = createComponent()));
 
   it('should create component', () => {
-    const fixture = TestBed.createComponent(LayoutComponent);
-    const app = fixture.debugElement.componentInstance;
+    expect(spectator.component).toBeTruthy();
+  });
 
-    expect(app).toBeTruthy();
+  it('should render dashboard', () => {
+    expect(spectator.fixture).toMatchSnapshot();
   });
 });
