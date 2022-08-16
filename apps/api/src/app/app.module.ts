@@ -1,31 +1,30 @@
-import { Module } from '@nestjs/common';
+import { CacheModule, Module } from '@nestjs/common';
 import { APP_GUARD } from '@nestjs/core';
 import {
   AuthGuard,
   KeycloakConnectModule,
-  PolicyEnforcementMode,
   ResourceGuard,
-  RoleGuard,
-  TokenValidation
+  RoleGuard
 } from 'nest-keycloak-connect';
 
+import { environment } from '../environments/environment.prod';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { UserSessionCache } from './users/gateway/user-session-cache';
+import { UsersGateway } from './users/gateway/users.gateway';
 
 @Module({
   imports: [
-    KeycloakConnectModule.register({
-      authServerUrl: 'http://localhost:8080',
-      realm: 'keycloak-angular-sandbox',
-      clientId: 'nest-api',
-      secret: 'qYwCJmgsUy5OT6sCm3MoUyiJEZwBMlCX',
-      policyEnforcement: PolicyEnforcementMode.PERMISSIVE, // optional
-      tokenValidation: TokenValidation.ONLINE // optional
-    })
+    CacheModule.register({
+      isGlobal: true
+    }),
+    KeycloakConnectModule.register(environment.auth)
   ],
   controllers: [AppController],
   providers: [
     AppService,
+    UserSessionCache,
+    UsersGateway,
     {
       provide: APP_GUARD,
       useClass: AuthGuard

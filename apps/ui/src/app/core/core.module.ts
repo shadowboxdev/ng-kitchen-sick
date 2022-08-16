@@ -13,8 +13,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { TranslateService } from '@ngx-translate/core';
 import { NgxGoogleAnalyticsRouterModule } from 'ngx-google-analytics';
+import { SocketIoModule } from 'ngx-socket-io';
 
 import { environment } from '../../environments/environment';
 import { AuthModule } from './auth';
@@ -44,7 +44,8 @@ const CORE_IMPORTS: Type<unknown>[] = [
 
 // 3rd party imports
 const OTHER_IMPORTS: (Type<unknown> | ModuleWithProviders<{}>)[] = [
-  NgxGoogleAnalyticsRouterModule
+  NgxGoogleAnalyticsRouterModule,
+  SocketIoModule.forRoot({ url: 'http://localhost:3333', options: {} })
 ];
 
 const PROVIDERS: Provider[] = [
@@ -66,8 +67,7 @@ export class CoreModule {
   constructor(
     @Optional()
     @SkipSelf()
-    parentModule: CoreModule,
-    private readonly _translate: TranslateService
+    parentModule: CoreModule
   ) {
     if (parentModule) throwAlreadyLoadedError();
   }

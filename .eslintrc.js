@@ -89,7 +89,7 @@ module.exports = {
         '@typescript-eslint/no-empty-interface': 'error',
         '@typescript-eslint/no-inferrable-types': 'off',
         '@typescript-eslint/no-misused-new': 'error',
-        '@typescript-eslint/no-non-null-assertion': 'error',
+        '@typescript-eslint/no-non-null-assertion': 'off',
         '@typescript-eslint/no-unused-expressions': 'error',
         '@typescript-eslint/prefer-function-type': 'error',
         '@typescript-eslint/quotes': ['error', 'single'],

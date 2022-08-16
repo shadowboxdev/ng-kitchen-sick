@@ -1,6 +1,5 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { Type } from '@angular/core';
-import { TestBed, waitForAsync } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
 
@@ -11,10 +10,12 @@ import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
+import { Spectator, createComponentFactory } from '@ngneat/spectator';
 import { TranslateModule } from '@ngx-translate/core';
 import { KeycloakAngularModule } from 'keycloak-angular';
 
 import { AppComponent } from './app.component';
+import { CoreModule } from './core';
 
 const MAT_IMPORTS: Type<unknown>[] = [
   LayoutModule,
@@ -26,23 +27,23 @@ const MAT_IMPORTS: Type<unknown>[] = [
 ];
 
 describe('AppComponent', () => {
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [AppComponent],
-      imports: [
-        HttpClientTestingModule,
-        NoopAnimationsModule,
-        RouterTestingModule,
-        KeycloakAngularModule,
-        TranslateModule.forRoot(),
-        ...MAT_IMPORTS
-      ]
-    }).compileComponents();
-  }));
+  let spectator: Spectator<AppComponent>;
+  const createComponent = createComponentFactory({
+    component: AppComponent,
+    imports: [
+      HttpClientTestingModule,
+      NoopAnimationsModule,
+      RouterTestingModule,
+      KeycloakAngularModule,
+      TranslateModule.forRoot(),
+      CoreModule,
+      ...MAT_IMPORTS
+    ]
+  });
+
+  beforeEach(() => (spectator = createComponent()));
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
+    expect(spectator.component).toBeTruthy();
   });
 });

@@ -11,10 +11,12 @@
         "ngcc",
         "ngneat",
         "nrwl",
+        "squareboat",
         "stylelint",
         "stylelintrc",
         "tailwindcss",
         "titlize",
+        "websockets",
         "xvfb"
     ],
     "editor.codeActionsOnSave": {
@@ -26,6 +28,7 @@
     "explorer.fileNesting.expand": false,
     "explorer.fileNesting.patterns": {
         "*.ts": "${capture}.scss, ${capture}.spec.ts, ${capture}.stories.ts, ${capture}.html",
+        "*.model.ts": "${capture}.transformer.ts",
         "tsconfig.json": "tsconfig.*.json",
         "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml"
     },
