@@ -17,6 +17,7 @@
     "paths": {
       "@sdw/api-interfaces": ["libs/api-interfaces/src/index.ts"],
       "@sdw/api/common": ["libs/api/common/src/index.ts"],
+      "@sdw/api/config": ["libs/api/config/src/index.ts"],
       "@sdw/models": ["libs/models/src/index.ts"]
     }
   },

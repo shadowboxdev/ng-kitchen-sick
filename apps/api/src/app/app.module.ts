@@ -1,5 +1,6 @@
 import { CacheModule, Module } from '@nestjs/common';
 import { APP_GUARD } from '@nestjs/core';
+import { SdwCommonModule } from '@sdw/api/common';
 import {
   AuthGuard,
   KeycloakConnectModule,
@@ -18,7 +19,14 @@ import { UsersGateway } from './users/gateway/users.gateway';
     CacheModule.register({
       isGlobal: true
     }),
-    KeycloakConnectModule.register(environment.auth)
+    KeycloakConnectModule.register(environment.auth),
+    // ObjectionModule.registerAsync({
+    //   isGlobal: true,
+    //   imports: [ConfigModule],
+    //   useFactory: (config: ConfigService) => config.get('db'),
+    //   inject: [ConfigService]
+    // }),
+    SdwCommonModule
   ],
   controllers: [AppController],
   providers: [

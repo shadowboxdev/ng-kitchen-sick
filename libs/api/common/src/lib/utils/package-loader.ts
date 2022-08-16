@@ -1,4 +1,4 @@
-export class Package {
+export class PackageLoader {
   public static load(pkgName: string): any {
     try {
       return require(pkgName);

@@ -1,22 +1,8 @@
 import { GenericFunction } from '../constants';
 
-export interface Pagination<T> {
-  data: T[];
-  pagination?: {
-    currentPage: number;
-    totalPages: number;
-    perPage: number;
-    total: number;
-  };
-}
-
-export interface SortableSchema {
-  sort?: string;
-}
-
 export interface ObjectionModel {
-  $fetchGraph?: GenericFunction;
-  $load?(exp: LoadRelSchema): Promise<void>;
+  $fetchGraph?: GenericFunction | undefined;
+  $load?(exp: LoadRelSchema): Promise<void> | undefined;
 }
 
 export interface NestedLoadRelSchema {

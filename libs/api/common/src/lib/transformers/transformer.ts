@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { forEachObjIndexed } from 'ramda';
+import { isObj } from 'ramda-adjunct';
 
 import { Transformer$IncludeMethodOptions } from '../models';
 import { Context } from '../utils/context';
@@ -26,6 +27,7 @@ export abstract class Transformer {
     options?: Transformer$IncludeMethodOptions
   ): Promise<Record<string, any> | null> {
     if (!obj) return null;
+
     transformer = this.applyOptions(transformer, options);
     return transformer.work(obj);
   }
@@ -44,6 +46,7 @@ export abstract class Transformer {
     options?: Transformer$IncludeMethodOptions
   ): Promise<Array<any>> {
     if (!arr || arr.length === 0) return [];
+
     transformer = this.applyOptions(transformer, options);
     const result = [];
     for (let data of arr) {
@@ -77,9 +80,7 @@ export abstract class Transformer {
   ): Promise<Record<string, any> | Record<string, any>[]> {
     let result = {} as Record<string, any>;
 
-    if (data instanceof Object) {
-      result = (await this.transform(data))!;
-    }
+    if (isObj(data)) result = (await this.transform(data))!;
 
     const handlerName = (name: string): keyof this =>
       ('include' +

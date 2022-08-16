@@ -4,6 +4,7 @@
   "projects": {
     "api": "apps/api",
     "api-common": "libs/api/common",
+    "api-config": "libs/api/config",
     "api-interfaces": "libs/api-interfaces",
     "models": "libs/models",
     "ui": "apps/ui",

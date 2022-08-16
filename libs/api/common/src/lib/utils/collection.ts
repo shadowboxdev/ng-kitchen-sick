@@ -10,7 +10,7 @@ import {
   mapObjIndexed,
   nth,
   path,
-  prop,
+  toString,
   propEq,
   reduce
 } from 'ramda';
@@ -73,8 +73,10 @@ export class Collection<T = any, K extends keyof T = keyof T> {
     const obj = {} as Record<string, any>;
 
     for (const el of this.raw) {
-      const value = prop(key, el) as string;
+      const value = path<string>([toString(key)], el)!;
+
       if (!obj[value]) obj[value] = [];
+
       obj[value].push(el);
     }
 
