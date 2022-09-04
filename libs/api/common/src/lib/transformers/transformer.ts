@@ -53,6 +53,7 @@ export abstract class Transformer {
       data = await transformer.work(data);
       result.push(data);
     }
+
     return result;
   }
 

@@ -8,7 +8,7 @@ import {
   RoleGuard
 } from 'nest-keycloak-connect';
 
-import { environment } from '../environments/environment.prod';
+import { environment } from '../environments/environment';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UserSessionCache } from './users/gateway/user-session-cache';
