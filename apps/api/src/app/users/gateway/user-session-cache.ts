@@ -1,6 +1,6 @@
 import { Inject, CACHE_MANAGER, Injectable } from '@nestjs/common';
 import { Cache } from 'cache-manager';
-import * as moment from 'moment';
+import moment from 'moment';
 
 import { UserSession } from './user-session';
 

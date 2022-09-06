@@ -1,12 +1,34 @@
-import { DynamicModule, INestApplication, Logger, Type } from '@nestjs/common';
+import { createBullBoard } from '@bull-board/api';
+import { BullAdapter } from '@bull-board/api/bullAdapter';
+import { ExpressAdapter } from '@bull-board/express';
+import {
+  DynamicModule,
+  INestApplication,
+  Logger,
+  Type,
+  VersioningType
+} from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { HttpAdapterHost, NestFactory } from '@nestjs/core';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import { Queue } from 'bull';
 import { useContainer } from 'class-validator';
+import compression from 'compression';
+import csurf from 'csurf';
+import expressBasicAuth from 'express-basic-auth';
+import session, { SessionOptions } from 'express-session';
+import helmet from 'helmet';
+import { objOf } from 'ramda';
 
 import { ExceptionFilter } from '../exceptions';
-import { ServerOptions } from './interfaces';
+import { BullOptions, ServerOptions } from './interfaces';
 import { RequestGuard } from './request.guard';
+
+const DEFAULT_SESSION_OPTIONS: SessionOptions = {
+  secret: 'my-secret',
+  resave: false,
+  saveUninitialized: false
+};
 
 export class RestServer {
   /**
@@ -28,11 +50,21 @@ export class RestServer {
       useContainer(app.select(module), { fallbackOnErrors: true });
     }
 
-    // app.use(hsts());
+    if (options?.bullOptions) {
+      RestServer._configureBull(app, options.bullOptions!);
+    }
+
+    app.use(helmet());
+    app.use(compression());
+    app.use(session(options?.sessionOptions ?? DEFAULT_SESSION_OPTIONS));
+    app.use(csurf());
     app.enableCors({ origin: true });
     app.setGlobalPrefix(globalPrefix);
     app.useGlobalGuards(new RequestGuard());
-
+    app.enableVersioning({
+      type: VersioningType.HEADER,
+      header: 'API_VERSION'
+    });
     const { httpAdapter } = app.get(HttpAdapterHost);
 
     app.useGlobalFilters(new ExceptionFilter(httpAdapter));
@@ -43,6 +75,30 @@ export class RestServer {
 
     Logger.log(
       `🚀 Application is running on: http://localhost:${port}/${globalPrefix}`
+    );
+  }
+
+  private static _configureBull(
+    app: INestApplication,
+    options: BullOptions
+  ): void {
+    const serverAdapter = new ExpressAdapter();
+    serverAdapter.setBasePath('/bull-board');
+
+    const aQueue = app.get<Queue>(`BullQueue_${options!.queueName}`);
+
+    createBullBoard({
+      queues: [new BullAdapter(aQueue)],
+      serverAdapter
+    });
+
+    app.use(
+      '/bull-board',
+      expressBasicAuth({
+        users: options.users ?? objOf('admin', 'password'),
+        challenge: true
+      }),
+      serverAdapter.getRouter()
     );
   }
 

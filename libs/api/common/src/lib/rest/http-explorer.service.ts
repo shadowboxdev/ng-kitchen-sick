@@ -4,6 +4,8 @@ import { Injectable, OnModuleInit } from '@nestjs/common';
 import { PATH_METADATA } from '@nestjs/common/constants';
 import { ConfigService } from '@nestjs/config';
 import { DiscoveryService, MetadataScanner } from '@nestjs/core';
+import { forEach } from 'ramda';
+import { isString } from 'ramda-adjunct';
 
 import { GenericFunction } from '../constants';
 import { ROUTE_NAME } from './constants';
@@ -20,21 +22,15 @@ export class HttpExplorer implements OnModuleInit {
   public onModuleInit(): void {
     HttpMetadata.setBaseUrl(this.config.get('app.url')!);
 
-    const wrappers = this.discovery.getControllers();
-
-    wrappers.forEach((w) => {
+    forEach((w) => {
       const { instance } = w;
-      if (
-        !instance ||
-        typeof instance === 'string' ||
-        !Object.getPrototypeOf(instance)
-      ) {
-        return;
-      }
+      const prototype = Object.getPrototypeOf(instance);
+
+      if (!instance || isString(instance) || !prototype) return;
 
       this.metadataScanner.scanFromPrototype(
         instance,
-        Object.getPrototypeOf(instance),
+        prototype,
         (key: string) =>
           this.lookupListeners(
             instance,
@@ -42,7 +38,7 @@ export class HttpExplorer implements OnModuleInit {
             Reflect.getMetadata(PATH_METADATA, w.metatype)
           )
       );
-    });
+    }, this.discovery.getControllers());
   }
 
   public lookupListeners(

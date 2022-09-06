@@ -21,7 +21,7 @@ export class HttpMetadata {
     if (params && Object.keys(params).length) {
       notPathParams = {};
 
-      mapObjIndexed((value, key) => {
+      mapObjIndexed((_, key) => {
         if (route.includes(`:${key}`)) {
           route = route.replace(`:${key}`, params[key]);
         } else {

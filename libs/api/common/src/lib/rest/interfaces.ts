@@ -1,5 +1,6 @@
 import { Request as BaseRequest } from 'express';
 import { Response as BaseResponse } from 'express';
+import { SessionOptions } from 'express-session';
 
 export interface Request extends BaseRequest {
   /**
@@ -32,8 +33,15 @@ export interface Response extends BaseResponse {
   ): any;
 }
 
+export interface BullOptions {
+  queueName: string;
+  users?: Record<string, string> | undefined;
+}
+
 export interface ServerOptions {
   addValidationContainer?: boolean | undefined;
+  bullOptions?: BullOptions | undefined;
+  sessionOptions?: SessionOptions | undefined;
   port?: number | undefined;
   globalPrefix?: string | undefined;
 }

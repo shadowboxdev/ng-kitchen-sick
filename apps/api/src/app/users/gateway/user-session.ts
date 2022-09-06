@@ -1,4 +1,4 @@
-import * as moment from 'moment';
+import moment from 'moment';
 
 const DATE_TIME_FORMAT = 'YYYY-MM-DDTHH:mm:ss' as const;
 

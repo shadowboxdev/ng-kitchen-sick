@@ -1,11 +1,6 @@
+type PaginationOptions = 'currentPage' | 'totalPages' | 'perPage' | 'total';
+
 export interface Pagination<T> {
   data: T[];
-  pagination?:
-    | {
-        currentPage: number;
-        totalPages: number;
-        perPage: number;
-        total: number;
-      }
-    | undefined;
+  pagination?: Record<PaginationOptions, number> | undefined;
 }
