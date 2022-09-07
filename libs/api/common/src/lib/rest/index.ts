@@ -6,3 +6,4 @@ export * from './interfaces';
 export * from './request.guard';
 export * from './rest-server.class';
 export * from './timeout.interceptor';
+export * from './typeorm-crud.service';

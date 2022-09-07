@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/naming-convention */
+/* eslint-disable prettier/prettier */
 import { createBullBoard } from '@bull-board/api';
 import { BullAdapter } from '@bull-board/api/bullAdapter';
 import { ExpressAdapter } from '@bull-board/express';
@@ -13,10 +15,8 @@ import { HttpAdapterHost, NestFactory } from '@nestjs/core';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { Queue } from 'bull';
 import { useContainer } from 'class-validator';
-import compression from 'compression';
-import csurf from 'csurf';
 import expressBasicAuth from 'express-basic-auth';
-import session, { SessionOptions } from 'express-session';
+import { SessionOptions } from 'express-session';
 import helmet from 'helmet';
 import { objOf } from 'ramda';
 
@@ -51,16 +51,33 @@ export class RestServer {
     }
 
     if (options?.bullOptions) {
-      RestServer._configureBull(app, options.bullOptions!);
+      // RestServer._configureBull(app, options.bullOptions!);
     }
 
-    app.use(helmet());
-    app.use(compression());
-    app.use(session(options?.sessionOptions ?? DEFAULT_SESSION_OPTIONS));
-    app.use(csurf());
+    app.use(
+      helmet({
+        contentSecurityPolicy: {
+          directives: {
+            ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+            'script-src': [ '\'self\'', '\'sha256-4IiDsMH+GkJlxivIDNfi6qk0O5HPtzyvNwVT3Wt8TIw=\'' ],
+            'connect-src': [
+              '\'self\'',
+              'http://localhost:8080/realms/keycloak-angular-sandbox/.well-known/openid-configuration',
+            ],
+          },
+        },
+        crossOriginOpenerPolicy: {
+          policy: 'unsafe-none',
+        },
+      })
+    );
+    // app.use(compression());
+    // app.use(session(options?.sessionOptions ?? DEFAULT_SESSION_OPTIONS));
+    // app.use(csurf());
     app.enableCors({ origin: true });
     app.setGlobalPrefix(globalPrefix);
     app.useGlobalGuards(new RequestGuard());
+    app.useGlobalFilters(new ExceptionFilter());
     app.enableVersioning({
       type: VersioningType.HEADER,
       header: 'API_VERSION'
@@ -108,34 +125,57 @@ export class RestServer {
       .setDescription('API documentation')
       .setVersion('1.0')
       .addTag('api')
-      .addOAuth2(
-        {
-          type: 'oauth2',
-          scheme: 'bearer',
-          bearerFormat: 'JWT',
-          flows: {
-            implicit: {
-              authorizationUrl:
-                'http://localhost:8080/realms/keycloak-angular-sandbox/protocol/openid-connect/auth',
-              tokenUrl:
-                'http://localhost:8080/realms/keycloak-angular-sandbox/protocol/openid-connect/token',
-              scopes: {
-                openid: 'open id',
-                api: 'Api Access',
-                profile: 'user profile'
-              }
+      .addOAuth2({
+        type: 'oauth2',
+        bearerFormat: 'JWT',
+        scheme: 'bearer',
+        openIdConnectUrl:
+          'http://localhost:8080/realms/keycloak-angular-sandbox/.well-known/openid-configuration',
+        flows: {
+          implicit: {
+                      authorizationUrl:
+            'http://localhost:8080/realms/keycloak-angular-sandbox/protocol/openid-connect/auth',
+          tokenUrl:
+            'http://localhost:8080/realms/keycloak-angular-sandbox/protocol/openid-connect/token',
+            scopes: {
+              openid: 'open id',
+              api: 'Api Access',
+              profile: 'user profile'
             }
           }
-        }
-        // {
-        //   type: 'openIdConnect',
-        //   scheme: 'bearer',
-        //   bearerFormat: 'JWT',
-        //   openIdConnectUrl:
-        //     'http://localhost:8080/realms/keycloak-angular-sandbox/.well-known/openid-configuration'
-        // },
-        // 'auth'
-      )
+        },
+        
+      }, 'openId')
+      // .addOAuth2(
+      //   {
+      //     type: 'openIdConnect',
+      //     scheme: 'bearer',
+      //     bearerFormat: 'JWT',
+      //     openIdConnectUrl:
+      //       'http://localhost:8080/realms/keycloak-angular-sandbox/.well-known/openid-configuration'
+      // flows: {
+      //   implicit: {
+      //     authorizationUrl:
+      //       'http://localhost:8080/realms/keycloak-angular-sandbox/protocol/openid-connect/auth',
+      //     tokenUrl:
+      //       'http://localhost:8080/realms/keycloak-angular-sandbox/protocol/openid-connect/token',
+      //     scopes: {
+      //       openid: 'open id',
+      //       api: 'Api Access',
+      //       profile: 'user profile'
+      //     }
+      //   }
+      // }
+      // }
+      // {
+      //   type: 'openIdConnect',
+      //   scheme: 'bearer',
+      //   bearerFormat: 'JWT',
+      //   openIdConnectUrl:
+      //     'http://localhost:8080/realms/keycloak-angular-sandbox/.well-known/openid-configuration'
+      // },
+      // 'auth'
+      // )
       // .addBearerAuth(
       //   { type: 'http', scheme: 'bearer', bearerFormat: 'JWT' },
       //   'JWT'
@@ -143,6 +183,8 @@ export class RestServer {
       .build();
 
     const document = SwaggerModule.createDocument(app, config);
-    SwaggerModule.setup('', app, document, {});
+    SwaggerModule.setup('', app, document, {
+      swaggerOptions: {}
+    });
   }
 }

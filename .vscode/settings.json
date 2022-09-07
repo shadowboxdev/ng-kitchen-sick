@@ -10,6 +10,7 @@
         "hsts",
         "Keycloak",
         "nestjs",
+        "nestjsx",
         "ngcc",
         "ngneat",
         "nrwl",
@@ -18,6 +19,7 @@
         "stylelintrc",
         "tailwindcss",
         "titlize",
+        "typeorm",
         "websockets",
         "xvfb"
     ],

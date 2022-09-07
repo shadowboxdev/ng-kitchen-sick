@@ -1,0 +1,24 @@
+default:
+  type: mysql
+  host: 127.0.0.1
+  port: 3306
+  username: admin
+  password: admin
+  database: ng_kitchen_sink
+  entities:
+    - ./**/*.entity.ts
+  migrationsTableName: orm_migrations
+  migrations:
+    - ./seeds.ts
+mysql:
+  type: mysql
+  host: 127.0.0.1
+  port: 3306
+  username: admin
+  password: admin
+  database: ng_kitchen_sink
+  entities:
+    - ./**/*.entity.ts
+  migrationsTableName: orm_migrations
+  migrations:
+    - ./seeds.ts

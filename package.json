@@ -23,7 +23,11 @@
     "build": "nx build",
     "test": "nx test",
     "workspace-schematic": "nx workspace-schematic",
-    "schematic:ui:feature-module": "yarn workspace-schematic feature --project=ui"
+    "schematic:ui:feature-module": "yarn workspace-schematic feature --project=ui",
+    "typeorm": "NODE_ENV=migration ts-node -p apps/api/tsconfig.app.json -r tsconfig-paths/register ./node_modules/typeorm/cli.js --config apps/api/src/app/config/orm.config.ts",
+    "typeorm:migrate": "npm run typeorm migration:generate -- -n init",
+    "typeorm:run": "npm run typeorm migration:run",
+    "typeorm:revert": "npm run typeorm migration:revert"
   },
   "dependencies": {
     "@angular-material-extensions/fab-menu": "^5.1.0",
@@ -71,6 +75,7 @@
     "@nrwl/angular": "14.6.4",
     "@squareboat/nest-events": "^0.1.0",
     "@squareboat/nestjs-objection": "^0.1.7",
+    "@zmotivat0r/o0": "^1.0.2",
     "angular-gridster2": "^14.1.0",
     "bull": "^4.9.0",
     "cache-manager": "^4.1.0",
@@ -85,6 +90,7 @@
     "keycloak-connect": "^19.0.0",
     "keycloak-js": "^19.0.0",
     "moment": "^2.29.4",
+    "mysql2": "^2.3.3",
     "nest-keycloak-connect": "^1.9.0",
     "ngx-google-analytics": "^14.0.0",
     "ngx-permissions": "^13.0.1",

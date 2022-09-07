@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 import { KeycloakService } from 'keycloak-angular';
@@ -13,6 +14,7 @@ export class AppComponent implements OnInit {
 
   constructor(
     private readonly _keycloak: KeycloakService,
+    private readonly _http: HttpClient,
     private socket: Socket
   ) {}
 
@@ -25,6 +27,7 @@ export class AppComponent implements OnInit {
       this.socket.fromEvent<any>('activeUsers').subscribe(console.log);
       this.socket.emit('connectUser', userProfile.email);
 
+      this._http.get('api/hello').subscribe(console.log);
       console.log(userProfile);
     }
   }
